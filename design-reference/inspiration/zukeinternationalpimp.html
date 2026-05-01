@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title><Brand Name> — High-Ticket Growth for Creators</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0B0A08;
+      --bg-2:     #111009;
+      --bg-3:     #181510;
+      --border:   #231F18;
+      --border-2: #2E2920;
+      --text:     #EDE8DF;
+      --text-2:   #8A8070;
+      --text-3:   #4A4438;
+      --gold:     #C8A45A;
+      --gold-2:   #E8C070;
+      --gold-dim: #7A6030;
+      --radius:   10px;
+      --sans:     'Plus Jakarta Sans', system-ui, sans-serif;
+      --serif:    'DM Serif Display', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILITIES ─────────────────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    @media (max-width: 768px) { .container { padding: 0 20px; } }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(200, 164, 90, 0.08);
+      border: 1px solid rgba(200, 164, 90, 0.2);
+      padding: 6px 14px;
+      border-radius: 100px;
+    }
+    .tag::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+
+    /* ── NAV ────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.4s ease, background 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(11, 10, 8, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom-color: var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-family: var(--serif); font-size: 20px; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-2); text-decoration: none; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      font-size: 13px; font-weight: 600;
+      color: var(--bg) !important;
+      background: var(--gold);
+      padding: 10px 20px; border-radius: 100px;
+      transition: opacity 0.2s ease, transform 0.2s ease !important;
+    }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+
+    /* ── HERO ───────────────────────────────────────────────── */
+    .hero {
+      min-height: 100dvh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-video-bg { position: absolute; inset: 0; z-index: 0; }
+    .hero-video-bg video { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(11, 10, 8, 0.62); }
+    .hero-overlay-center {
+      position: absolute; inset: 0; z-index: 1;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(11, 10, 8, 0.45) 0%, transparent 100%);
+    }
+    .hero-vignette {
+      position: absolute; inset: 0; z-index: 2;
+      background:
+        linear-gradient(to bottom,  var(--bg) 0%, transparent 22%),
+        linear-gradient(to top,     var(--bg) 0%, transparent 28%),
+        linear-gradient(to right,   var(--bg) 0%, transparent 18%),
+        linear-gradient(to left,    var(--bg) 0%, transparent 18%);
+    }
+    .hero-content {
+      position: relative; z-index: 3;
+      max-width: 860px;
+      padding: 140px 40px 120px;
+    }
+    .hero-eyebrow { margin-bottom: 28px; }
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(40px, 6.5vw, 88px);
+      line-height: 1.03;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .hero-headline em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: clamp(15px, 4vw, 18px);
+      color: var(--text-2);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 44px;
+    }
+    .hero-actions {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; flex-wrap: wrap; margin-bottom: 56px;
+    }
+    .hero-stats {
+      display: flex; align-items: stretch; justify-content: center;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      background: rgba(11, 10, 8, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      overflow: hidden;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .hero-stat {
+      flex: 1; padding: 20px 20px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-num { font-family: var(--serif); font-size: clamp(22px, 3vw, 32px); line-height: 1; letter-spacing: -0.03em; color: var(--gold); margin-bottom: 4px; }
+    .hero-stat-num span { color: var(--gold); }
+    .hero-stat-label { font-size: 10px; color: var(--text-2); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    @media (max-width: 480px) {
+      .hero-content { padding: 100px 20px 80px; }
+      .hero-stats { display: grid; grid-template-columns: 1fr 1fr; max-width: 100%; }
+      .hero-stat { border-right: 1px solid rgba(255,255,255,0.07); }
+      .hero-stat:nth-child(2) { border-right: none; }
+      .hero-stat:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.07); }
+      .hero-stat:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.07); border-right: none; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+    }
+
+    /* ── 390px SMALL PHONE FIXES ─────────────────────────────── */
+    @media (max-width: 390px) {
+      .hero-stat-num { font-size: 18px; }
+      .hero-stat-label { font-size: 9px; }
+      .hero-stat { padding: 14px 12px; }
+      .btn-primary, .btn-outline { padding: 15px 22px; font-size: 13px; min-height: 44px; }
+      .nav-cta { min-height: 44px; display: flex; align-items: center; }
+      .faq-q { min-height: 44px; }
+      .ticker-item { font-size: 12px; }
+      .vault-headline { font-size: 18px; }
+      .vault-sub { font-size: 12px; }
+    }
+
+    /* ── BUTTONS ────────────────────────────────────────────── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: var(--bg);
+      font-size: 14px; font-weight: 700;
+      padding: 16px 28px; border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px) scale(1.02); opacity: 0.92; }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-2); font-size: 14px; font-weight: 500;
+      text-decoration: none; transition: color 0.2s ease;
+    }
+    .btn-ghost:hover { color: var(--text); }
+    .btn-ghost svg { transition: transform 0.2s ease; }
+    .btn-ghost:hover svg { transform: translateX(3px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-2); font-size: 14px; font-weight: 500;
+      padding: 16px 28px; border: 1px solid var(--border-2);
+      border-radius: 100px; text-decoration: none;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .btn-outline:hover { border-color: var(--text-2); color: var(--text); }
+
+    /* ── TICKER ─────────────────────────────────────────────── */
+    .ticker { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 15px 0; overflow: hidden; }
+    .ticker-track { display: flex; gap: 60px; animation: ticker 30s linear infinite; white-space: nowrap; }
+    .ticker-item { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; color: var(--text-2); flex-shrink: 0; }
+    .ticker-item strong { color: var(--text); font-weight: 700; }
+    .ticker-dot { width: 4px; height: 4px; background: var(--gold-dim); border-radius: 50%; flex-shrink: 0; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── SECTION SHARED ─────────────────────────────────────── */
+    section { padding: 80px 0; }
+    @media (max-width: 768px) { section { padding: 52px 0; } }
+
+    .section-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 64px; }
+    .section-tag { margin-bottom: 20px; }
+    .section-headline { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 52px); line-height: 1.1; letter-spacing: -0.025em; color: var(--text); }
+    .section-headline em { font-style: italic; color: var(--gold); }
+    .section-body { font-size: 15px; color: var(--text-2); line-height: 1.75; max-width: 420px; align-self: end; }
+    @media (max-width: 768px) { .section-header { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; } }
+
+    /* ── CLIENT REEL ────────────────────────────────────────── */
+    .client-reel {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 0;
+      overflow: hidden;
+    }
+    .client-reel-label {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 40px;
+    }
+    .reel-track-wrap { overflow: hidden; position: relative; }
+    .reel-track-wrap::before, .reel-track-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 140px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .reel-track-wrap::before { left: 0; background: linear-gradient(to right, var(--bg-2), transparent); }
+    .reel-track-wrap::after  { right: 0; background: linear-gradient(to left,  var(--bg-2), transparent); }
+
+    .reel-track {
+      display: flex;
+      gap: 16px;
+      animation: reel 18s linear infinite;
+      width: max-content;
+    }
+    @keyframes reel { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .client-card {
+      width: 180px;
+      height: 240px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--bg-3);
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      filter: blur(2px) brightness(0.55);
+      transition: filter 0.4s ease;
+    }
+    .client-card:hover { filter: blur(0px) brightness(0.75); }
+
+    /* Fake IG profile card content */
+    .client-card-inner {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      padding: 16px 14px;
+      background: linear-gradient(160deg, #1a1714 0%, #0e0c0a 100%);
+    }
+    .cc-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      margin-bottom: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800; color: #fff;
+      flex-shrink: 0;
+    }
+    .cc-handle { font-size: 11px; font-weight: 700; color: #EDE8DF; margin-bottom: 2px; display: flex; align-items: center; gap: 4px; }
+    .cc-verified { width: 10px; height: 10px; background: #3897f0; border-radius: 50%; flex-shrink: 0; }
+    .cc-niche { font-size: 10px; color: #8A8070; margin-bottom: 10px; }
+    .cc-stats { display: flex; gap: 10px; margin-bottom: 10px; }
+    .cc-stat { font-size: 9px; color: #8A8070; }
+    .cc-stat strong { display: block; font-size: 11px; font-weight: 700; color: #EDE8DF; }
+    .cc-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .cc-tile {
+      aspect-ratio: 1;
+      border-radius: 2px;
+    }
+
+    /* ── RESULTS VIDEO SECTION ──────────────────────────────── */
+    .results-video-section {
+      position: relative;
+      height: 70vh;
+      min-height: 400px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .results-video-section video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .results-video-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, var(--bg) 0%, transparent 20%, transparent 80%, var(--bg) 100%),
+        rgba(11, 10, 8, 0.35);
+    }
+    .results-video-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .results-video-content h2 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .results-video-content h2 em { font-style: italic; color: var(--gold); }
+    .results-video-content p { font-size: 15px; color: var(--text-2); }
+
+    /* ── HOW IT WORKS ───────────────────────────────────────── */
+    .process { background: var(--bg); }
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .process-step { background: var(--bg-2); padding: 40px 32px; }
+    .step-num { font-family: var(--serif); font-size: 64px; line-height: 1; letter-spacing: -0.04em; color: var(--border-2); margin-bottom: 24px; transition: color 0.3s ease; }
+    .process-step:hover .step-num { color: var(--gold-dim); }
+    .step-title { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 10px; letter-spacing: -0.02em; }
+    .step-desc { font-size: 13px; color: var(--text-2); line-height: 1.7; }
+    .step-tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+    .step-pill { font-size: 10px; font-weight: 600; color: var(--text-3); background: var(--bg); border: 1px solid var(--border); padding: 4px 10px; border-radius: 100px; letter-spacing: 0.04em; }
+    @media (max-width: 900px) { .process-grid { grid-template-columns: 1fr; } }
+
+    /* ── WHO IT'S FOR ───────────────────────────────────────── */
+    .audience { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .audience-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; }
+    .audience-headline { font-family: var(--serif); font-size: clamp(30px, 3.8vw, 54px); line-height: 1.08; letter-spacing: -0.025em; color: var(--text); margin-top: 24px; }
+    .audience-headline em { font-style: italic; color: var(--gold); }
+    .audience-sub { margin-top: 16px; font-size: 14px; color: var(--text-2); line-height: 1.75; }
+    .criteria-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); }
+    .criteria-item { display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start; padding: 24px; background: var(--bg-3); transition: background 0.2s ease; }
+    .criteria-item:hover { background: var(--bg); }
+    .criteria-icon { width: 40px; height: 40px; background: rgba(200, 164, 90, 0.1); border: 1px solid rgba(200, 164, 90, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .criteria-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .criteria-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .criteria-desc { font-size: 12px; color: var(--text-2); line-height: 1.6; }
+    @media (max-width: 900px) { .audience-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* ── SERVICES ───────────────────────────────────────────── */
+    .deliverables { background: var(--bg); }
+    .deliverables-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .deliver-card { background: var(--bg-2); padding: 36px 30px; position: relative; transition: background 0.25s ease; }
+    .deliver-card:hover { background: var(--bg-3); }
+    .deliver-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s ease; }
+    .deliver-card:hover::after { opacity: 1; }
+    .deliver-num { font-family: var(--serif); font-size: 12px; color: var(--gold-dim); letter-spacing: 0.06em; margin-bottom: 14px; font-style: italic; }
+    .deliver-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; letter-spacing: -0.02em; }
+    .deliver-desc { font-size: 13px; color: var(--text-2); line-height: 1.65; }
+    .deliver-list { margin-top: 16px; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .deliver-list li { font-size: 12px; color: var(--text-2); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+    .deliver-list li::before { content: '→'; color: var(--gold-dim); flex-shrink: 0; margin-top: 1px; }
+    @media (max-width: 900px) { .deliverables-grid { grid-template-columns: 1fr; } }
+    @media (min-width: 901px) and (max-width: 1060px) { .deliverables-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ── MODEL ──────────────────────────────────────────────── */
+    .model { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .model-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .model-headline { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 52px); line-height: 1.1; letter-spacing: -0.025em; color: var(--text); margin-top: 24px; }
+    .model-headline em { font-style: italic; color: var(--gold); }
+    .model-sub { margin-top: 16px; font-size: 14px; color: var(--text-2); line-height: 1.8; }
+    .model-card { background: var(--bg-3); border: 1px solid var(--border-2); border-radius: 16px; padding: 36px; position: relative; overflow: hidden; }
+    .model-card::before { content: ''; position: absolute; bottom: -60px; right: -60px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(200, 164, 90, 0.12) 0%, transparent 70%); pointer-events: none; }
+    .model-card-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+    .comparison { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); }
+    .comp-row { display: grid; grid-template-columns: 1fr 1fr 1fr; background: var(--bg-2); }
+    .comp-row:first-child { background: var(--bg); }
+    .comp-cell { padding: 12px 14px; font-size: 12px; color: var(--text-2); border-right: 1px solid var(--border); }
+    .comp-cell:last-child { border-right: none; }
+    .comp-cell.header { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+    .comp-cell.highlight { color: var(--text); font-weight: 600; }
+    .comp-cell.gold { color: var(--gold); font-weight: 700; }
+    .check { color: var(--gold); }
+    .cross { color: var(--text-3); }
+    @media (max-width: 900px) { .model-inner { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* ── TESTIMONIALS ───────────────────────────────────────── */
+    .testimonials { background: var(--bg); position: relative; overflow: hidden; }
+    .testimonials-video-bg { position: absolute; inset: 0; z-index: 0; }
+    .testimonials-video-bg video { width: 100%; height: 100%; object-fit: cover; opacity: 0.18; }
+    .testimonials-video-mask {
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        linear-gradient(to bottom, var(--bg) 0%, rgba(11,10,8,0.5) 15%, rgba(11,10,8,0.5) 85%, var(--bg) 100%),
+        linear-gradient(to right, var(--bg) 0%, transparent 15%, transparent 85%, var(--bg) 100%);
+    }
+    .testimonials .container { position: relative; z-index: 2; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; } }
+    @media (min-width: 601px) and (max-width: 900px) { .testi-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .testi-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; gap: 16px; transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .testi-card:hover { border-color: var(--border-2); transform: translateY(-4px); }
+    .testi-stars { display: flex; gap: 3px; }
+    .testi-stars svg { width: 13px; height: 13px; fill: var(--gold); stroke: none; }
+    .testi-quote { font-size: 13px; color: var(--text); line-height: 1.7; flex: 1; }
+    .testi-result { font-family: var(--serif); font-size: 26px; color: var(--gold); letter-spacing: -0.02em; }
+    .testi-result-label { font-size: 10px; color: var(--text-3); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
+    .testi-context { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: var(--bg-3); border: 1px solid var(--border); border-radius: 8px; }
+    .testi-context-item { font-size: 11px; color: var(--text-2); display: flex; align-items: flex-start; gap: 8px; }
+    .testi-context-item::before { content: '·'; color: var(--gold-dim); flex-shrink: 0; }
+    .testi-author { display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--border); }
+    .testi-avatar { width: 38px; height: 38px; background: var(--bg-3); border: 1px solid var(--border-2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .testi-name { font-size: 13px; font-weight: 700; color: var(--text); }
+    .testi-handle { font-size: 11px; color: var(--text-2); margin-top: 2px; }
+
+    /* ── FREE AUDIT ─────────────────────────────────────────── */
+    .audit { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .audit-grid { display: grid; grid-template-columns: 4fr 8fr; gap: 72px; align-items: start; }
+    .audit-headline { font-family: var(--serif); font-size: clamp(28px, 3.8vw, 52px); line-height: 1.08; letter-spacing: -0.025em; color: var(--text); margin-top: 24px; }
+    .audit-headline em { font-style: italic; color: var(--gold); }
+    .audit-sub { margin-top: 16px; font-size: 14px; color: var(--text-2); line-height: 1.75; }
+    .audit-cta-row { margin-top: 32px; }
+    .audit-note { margin-top: 16px; font-size: 12px; color: var(--text-3); }
+
+    .audit-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .audit-item { background: var(--bg-3); padding: 24px 28px; transition: background 0.2s ease; }
+    .audit-item:hover { background: var(--bg); }
+    .audit-item-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .audit-item-title { font-size: 14px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+    .audit-step-num { font-family: var(--serif); font-size: 13px; color: var(--gold-dim); font-style: italic; }
+    .audit-item-desc { font-size: 12px; color: var(--text-2); line-height: 1.65; }
+    @media (max-width: 900px) { .audit-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* ── FAQ ────────────────────────────────────────────────── */
+    .faq { background: var(--bg); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    @media (max-width: 768px) { .faq-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .faq-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; align-self: start; }
+    .faq-item { background: var(--bg-3); }
+    .faq-q { width: 100%; background: none; border: none; padding: 20px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; text-align: left; }
+    .faq-q-text { font-size: 14px; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+    .faq-arrow { width: 18px; height: 18px; stroke: var(--text-2); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-a-inner { padding: 0 22px 20px; font-size: 13px; color: var(--text-2); line-height: 1.75; }
+    .faq-item.open .faq-a { max-height: 300px; }
+
+    /* ── CTA ────────────────────────────────────────────────── */
+    .cta { background: var(--bg-2); border-top: 1px solid var(--border); }
+    .cta-inner { background: var(--bg-3); border: 1px solid var(--border-2); border-radius: 20px; padding: 72px 60px; text-align: center; position: relative; overflow: hidden; }
+    .cta-inner::before { content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 600px; height: 300px; background: radial-gradient(ellipse, rgba(200, 164, 90, 0.1) 0%, transparent 70%); pointer-events: none; }
+    .cta-headline { font-family: var(--serif); font-size: clamp(32px, 4.5vw, 64px); line-height: 1.05; letter-spacing: -0.025em; color: var(--text); margin-top: 20px; margin-bottom: 16px; }
+    .cta-headline em { font-style: italic; color: var(--gold); }
+    .cta-sub { font-size: 15px; color: var(--text-2); max-width: 500px; margin: 0 auto 40px; line-height: 1.7; }
+    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .cta-note { margin-top: 20px; font-size: 12px; color: var(--text-3); }
+    @media (max-width: 768px) { .cta-inner { padding: 48px 24px; } }
+
+    /* ── VAULT SCROLL ───────────────────────────────────────── */
+    .vault-section {
+      padding: 80px 24px;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vault-sticky {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vault-frame {
+      position: relative;
+      width: 100%;
+      max-width: 820px;
+      aspect-ratio: 16/9;
+    }
+
+    .vault-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 16px;
+    }
+
+    /* Blend edges into site background */
+    .vault-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      background:
+        radial-gradient(ellipse 100% 20% at 50% 0%, var(--bg) 0%, transparent 100%),
+        radial-gradient(ellipse 100% 20% at 50% 100%, var(--bg) 0%, transparent 100%),
+        radial-gradient(ellipse 20% 100% at 0% 50%, var(--bg) 0%, transparent 100%),
+        radial-gradient(ellipse 20% 100% at 100% 50%, var(--bg) 0%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .vault-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 28px 32px;
+      background: linear-gradient(to top, rgba(11,10,8,0.88) 0%, transparent 55%);
+      z-index: 2;
+    }
+
+    .vault-text {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1);
+      text-align: left;
+    }
+
+    .vault-text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .vault-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .vault-headline {
+      font-family: var(--serif);
+      font-size: clamp(18px, 4vw, 32px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 8px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+    }
+
+    .vault-headline em { font-style: italic; color: var(--gold); }
+
+    .vault-sub {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.6;
+      max-width: 320px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+    }
+
+    @media (max-width: 768px) {
+      .vault-section { padding: 48px 16px; }
+      .vault-overlay { padding: 16px 20px; }
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    footer { background: var(--bg-2); border-top: 1px solid var(--border); padding: 48px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-logo { font-family: var(--serif); font-size: 18px; color: var(--text); text-decoration: none; }
+    .footer-logo span { color: var(--gold); }
+    .footer-copy { font-size: 12px; color: var(--text-3); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 12px; color: var(--text-3); text-decoration: none; transition: color 0.2s ease; }
+    .footer-links a:hover { color: var(--text-2); }
+    @media (max-width: 600px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; } }
+
+    /* ── DEPTH SECTION MOBILE ───────────────────────────────── */
+    @media (max-width: 900px) {
+      .depth-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    }
+
+    /* ── FOOTER SOCIAL ICONS ────────────────────────────────── */
+    .footer-links a svg { vertical-align: middle; opacity: 0.6; transition: opacity 0.2s ease; }
+    .footer-links a:hover svg { opacity: 1; }
+
+    /* ── SCROLL REVEALS ─────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 80ms; }
+    .reveal-delay-2 { transition-delay: 160ms; }
+    .reveal-delay-3 { transition-delay: 240ms; }
+    .reveal-delay-4 { transition-delay: 320ms; }
+    .reveal-delay-5 { transition-delay: 400ms; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="logo" style="font-size:16px;"><Brand Name><span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#model">Our Model</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#book" target="_blank" rel="noopener noreferrer" class="nav-cta">Book Free Audit</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="padding: 0;">
+    <div class="hero-video-bg">
+      <video autoplay loop muted playsinline>
+        <source src="orangeiphone.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-overlay-center"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal">
+        <span class="tag">Performance-Only Growth</span>
+      </div>
+      <h1 class="hero-headline reveal reveal-delay-1">
+        Your audience is worth<br><em>a lot more</em> than it's making.
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">
+        We build the full revenue infrastructure — funnels, email, ads, sales systems — for creators and coaches on Instagram and YouTube. Pure rev share. We only win when you do.
+      </p>
+      <div class="hero-actions reveal reveal-delay-3">
+        <a href="#book" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Book a Free Audit Call
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="#process" class="btn-ghost">
+          See how it works
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+        </a>
+      </div>
+      <div class="hero-stats reveal reveal-delay-4">
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span>$20k–$250k</span></div>
+          <div class="hero-stat-label">Client MRR Range</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span>23x</span></div>
+          <div class="hero-stat-label">Average ROI</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span>14</span></div>
+          <div class="hero-stat-label">Creators Scaled</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span>16d</span></div>
+          <div class="hero-stat-label">Avg. to First Launch</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>$127k</strong> in 60 days · fitness coach · 18k Instagram</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>$250k</strong> in 14 days · 1.5M creator · challenge funnel</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>$34k</strong> in 14 weeks · clothing brand · no ads</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>Rev share only</strong> — completely incentivised to perform</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>$84k MRR</strong> mindset coach · YouTube</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>Email list</strong> 900 → 12k in 45 days</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>2,300 attendees</strong> on first webinar launch</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>$127k</strong> in 60 days · fitness coach · 18k Instagram</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>$250k</strong> in 14 days · 1.5M creator · challenge funnel</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>$34k</strong> in 14 weeks · clothing brand · no ads</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>Rev share only</strong> — completely incentivised to perform</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>$84k MRR</strong> mindset coach · YouTube</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>Email list</strong> 900 → 12k in 45 days</div>
+      <div class="ticker-item"><span class="ticker-dot"></span><strong>2,300 attendees</strong> on first webinar launch</div>
+    </div>
+  </div>
+
+  <!-- CLIENT REEL -->
+  <div class="client-reel">
+    <div class="client-reel-label">Some of the creators we've worked with</div>
+    <div class="reel-track-wrap">
+      <div class="reel-track" id="reelTrack">
+        <!-- Cards set 1 -->
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7);">V</div>
+            <div class="cc-handle">saintt.vii <div class="cc-verified"></div></div>
+            <div class="cc-niche">Fashion Designer</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>14.8K</strong>followers</div><div class="cc-stat"><strong>10</strong>posts</div></div>
+            <div class="cc-grid">
+              <div class="cc-tile" style="background:#1a1714"></div><div class="cc-tile" style="background:#222018"></div><div class="cc-tile" style="background:#181512"></div>
+              <div class="cc-tile" style="background:#201e1a"></div><div class="cc-tile" style="background:#161412"></div><div class="cc-tile" style="background:#1c1a16"></div>
+            </div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#4facfe,#00f2fe);">D</div>
+            <div class="cc-handle"><creator-handle> <div class="cc-verified"></div></div>
+            <div class="cc-niche">Creator · Entertainer</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>925K</strong>followers</div><div class="cc-stat"><strong>1,294</strong>posts</div></div>
+            <div class="cc-grid">
+              <div class="cc-tile" style="background:#1e2530"></div><div class="cc-tile" style="background:#2a1f1a"></div><div class="cc-tile" style="background:#1a2028"></div>
+              <div class="cc-tile" style="background:#281e1c"></div><div class="cc-tile" style="background:#1e2530"></div><div class="cc-tile" style="background:#201e1a"></div>
+            </div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#667eea,#764ba2);">P</div>
+            <div class="cc-handle">iampasqualeminasi <div class="cc-verified"></div></div>
+            <div class="cc-niche">Entrepreneur</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>31.8K</strong>followers</div><div class="cc-stat"><strong>914</strong>posts</div></div>
+            <div class="cc-grid">
+              <div class="cc-tile" style="background:#1c1e22"></div><div class="cc-tile" style="background:#22201e"></div><div class="cc-tile" style="background:#1e2024"></div>
+              <div class="cc-tile" style="background:#201e1c"></div><div class="cc-tile" style="background:#1c1e22"></div><div class="cc-tile" style="background:#242220"></div>
+            </div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#f093fb,#f5576c);">D</div>
+            <div class="cc-handle">dllanpatel</div>
+            <div class="cc-niche">AI Growth Partner</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>1,914</strong>followers</div><div class="cc-stat"><strong>23</strong>posts</div></div>
+            <div class="cc-grid">
+              <div class="cc-tile" style="background:#20201e"></div><div class="cc-tile" style="background:#1c2028"></div><div class="cc-tile" style="background:#28201c"></div>
+              <div class="cc-tile" style="background:#1e1e1c"></div><div class="cc-tile" style="background:#201c18"></div><div class="cc-tile" style="background:#1c2028"></div>
+            </div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#43e97b,#38f9d7);">A</div>
+            <div class="cc-handle">andrewcshin <div class="cc-verified"></div></div>
+            <div class="cc-niche">UGC Coach</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>138K</strong>followers</div><div class="cc-stat"><strong>69</strong>posts</div></div>
+            <div class="cc-grid">
+              <div class="cc-tile" style="background:#e8e4de;opacity:.15"></div><div class="cc-tile" style="background:#1a1a1a"></div><div class="cc-tile" style="background:#d4cfc9;opacity:.12"></div>
+              <div class="cc-tile" style="background:#1e1c1a"></div><div class="cc-tile" style="background:#e0dbd5;opacity:.10"></div><div class="cc-tile" style="background:#1c1a18"></div>
+            </div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#ffecd2,#fcb69f);">C</div>
+            <div class="cc-handle">chlo.ugc <div class="cc-verified"></div></div>
+            <div class="cc-niche">UGC &amp; IG Growth</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>20.5K</strong>followers</div><div class="cc-stat"><strong>754</strong>posts</div></div>
+            <div class="cc-grid">
+              <div class="cc-tile" style="background:#2a2420;opacity:.9"></div><div class="cc-tile" style="background:#c8b89a;opacity:.18"></div><div class="cc-tile" style="background:#1e2028"></div>
+              <div class="cc-tile" style="background:#bdb0a0;opacity:.14"></div><div class="cc-tile" style="background:#201e1c"></div><div class="cc-tile" style="background:#c4b4a0;opacity:.16"></div>
+            </div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#fa709a,#fee140);">T</div>
+            <div class="cc-handle">titodurojaye <div class="cc-verified"></div></div>
+            <div class="cc-niche">Finance · Sports</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>11.6K</strong>followers</div><div class="cc-stat"><strong>237</strong>posts</div></div>
+            <div class="cc-grid">
+              <div class="cc-tile" style="background:#2a2820"></div><div class="cc-tile" style="background:#1e2428"></div><div class="cc-tile" style="background:#282420"></div>
+              <div class="cc-tile" style="background:#1e2428"></div><div class="cc-tile" style="background:#242220"></div><div class="cc-tile" style="background:#20201e"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7);">V</div>
+            <div class="cc-handle">saintt.vii <div class="cc-verified"></div></div>
+            <div class="cc-niche">Fashion Designer</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>14.8K</strong>followers</div><div class="cc-stat"><strong>10</strong>posts</div></div>
+            <div class="cc-grid"><div class="cc-tile" style="background:#1a1714"></div><div class="cc-tile" style="background:#222018"></div><div class="cc-tile" style="background:#181512"></div><div class="cc-tile" style="background:#201e1a"></div><div class="cc-tile" style="background:#161412"></div><div class="cc-tile" style="background:#1c1a16"></div></div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#4facfe,#00f2fe);">D</div>
+            <div class="cc-handle"><creator-handle> <div class="cc-verified"></div></div>
+            <div class="cc-niche">Creator · Entertainer</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>925K</strong>followers</div><div class="cc-stat"><strong>1,294</strong>posts</div></div>
+            <div class="cc-grid"><div class="cc-tile" style="background:#1e2530"></div><div class="cc-tile" style="background:#2a1f1a"></div><div class="cc-tile" style="background:#1a2028"></div><div class="cc-tile" style="background:#281e1c"></div><div class="cc-tile" style="background:#1e2530"></div><div class="cc-tile" style="background:#201e1a"></div></div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#667eea,#764ba2);">P</div>
+            <div class="cc-handle">iampasqualeminasi <div class="cc-verified"></div></div>
+            <div class="cc-niche">Entrepreneur</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>31.8K</strong>followers</div><div class="cc-stat"><strong>914</strong>posts</div></div>
+            <div class="cc-grid"><div class="cc-tile" style="background:#1c1e22"></div><div class="cc-tile" style="background:#22201e"></div><div class="cc-tile" style="background:#1e2024"></div><div class="cc-tile" style="background:#201e1c"></div><div class="cc-tile" style="background:#1c1e22"></div><div class="cc-tile" style="background:#242220"></div></div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#f093fb,#f5576c);">D</div>
+            <div class="cc-handle">dllanpatel</div>
+            <div class="cc-niche">AI Growth Partner</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>1,914</strong>followers</div><div class="cc-stat"><strong>23</strong>posts</div></div>
+            <div class="cc-grid"><div class="cc-tile" style="background:#20201e"></div><div class="cc-tile" style="background:#1c2028"></div><div class="cc-tile" style="background:#28201c"></div><div class="cc-tile" style="background:#1e1e1c"></div><div class="cc-tile" style="background:#201c18"></div><div class="cc-tile" style="background:#1c2028"></div></div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#43e97b,#38f9d7);">A</div>
+            <div class="cc-handle">andrewcshin <div class="cc-verified"></div></div>
+            <div class="cc-niche">UGC Coach</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>138K</strong>followers</div><div class="cc-stat"><strong>69</strong>posts</div></div>
+            <div class="cc-grid"><div class="cc-tile" style="background:#e8e4de;opacity:.15"></div><div class="cc-tile" style="background:#1a1a1a"></div><div class="cc-tile" style="background:#d4cfc9;opacity:.12"></div><div class="cc-tile" style="background:#1e1c1a"></div><div class="cc-tile" style="background:#e0dbd5;opacity:.10"></div><div class="cc-tile" style="background:#1c1a18"></div></div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#ffecd2,#fcb69f);">C</div>
+            <div class="cc-handle">chlo.ugc <div class="cc-verified"></div></div>
+            <div class="cc-niche">UGC &amp; IG Growth</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>20.5K</strong>followers</div><div class="cc-stat"><strong>754</strong>posts</div></div>
+            <div class="cc-grid"><div class="cc-tile" style="background:#2a2420;opacity:.9"></div><div class="cc-tile" style="background:#c8b89a;opacity:.18"></div><div class="cc-tile" style="background:#1e2028"></div><div class="cc-tile" style="background:#bdb0a0;opacity:.14"></div><div class="cc-tile" style="background:#201e1c"></div><div class="cc-tile" style="background:#c4b4a0;opacity:.16"></div></div>
+          </div>
+        </div>
+        <div class="client-card">
+          <div class="client-card-inner">
+            <div class="cc-avatar" style="background: linear-gradient(135deg,#fa709a,#fee140);">T</div>
+            <div class="cc-handle">titodurojaye <div class="cc-verified"></div></div>
+            <div class="cc-niche">Finance · Sports</div>
+            <div class="cc-stats"><div class="cc-stat"><strong>11.6K</strong>followers</div><div class="cc-stat"><strong>237</strong>posts</div></div>
+            <div class="cc-grid"><div class="cc-tile" style="background:#2a2820"></div><div class="cc-tile" style="background:#1e2428"></div><div class="cc-tile" style="background:#282420"></div><div class="cc-tile" style="background:#1e2428"></div><div class="cc-tile" style="background:#242220"></div><div class="cc-tile" style="background:#20201e"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="section-tag reveal"><span class="tag">The Process</span></div>
+          <h2 class="section-headline reveal reveal-delay-1">Built to print, <em>not to impress</em>.</h2>
+        </div>
+        <p class="section-body reveal reveal-delay-2">Three phases. Every client. No guesswork — a system refined across 14 creator engagements.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="step-num">01</div>
+          <div class="step-title">Audit & Architecture</div>
+          <p class="step-desc">We map your audience, niche authority, and conversion gaps. You get a fully documented growth plan before we touch anything.</p>
+          <div class="step-tag-list"><span class="step-pill">Audience Audit</span><span class="step-pill">Funnel Map</span><span class="step-pill">Offer Design</span></div>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <div class="step-title">Build & Launch</div>
+          <p class="step-desc">Funnels built, email sequences written, content engine live, DM automation running. You stay on content — we handle the rest.</p>
+          <div class="step-tag-list"><span class="step-pill">Email Automation</span><span class="step-pill">Webinar Funnels</span><span class="step-pill">Paid Ads</span><span class="step-pill">DM Systems</span></div>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <div class="step-title">Scale & Optimise</div>
+          <p class="step-desc">Post-launch we iterate fast. Winning angles get more budget. Losing ones get cut. Each month compounds on the last.</p>
+          <div class="step-tag-list"><span class="step-pill">A/B Testing</span><span class="step-pill">Retargeting</span><span class="step-pill">Monthly Reviews</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="audience" id="for-who">
+    <div class="container">
+      <div class="audience-grid">
+        <div>
+          <span class="tag reveal">Who This Is For</span>
+          <h2 class="audience-headline reveal reveal-delay-1">You have the<br>audience.<br><em>We handle the rest.</em></h2>
+          <p class="audience-sub reveal reveal-delay-2">You don't need an existing offer. You need expertise, an engaged following, and the ambition to monetise properly. We build the rest.</p>
+        </div>
+        <div class="criteria-list reveal reveal-delay-1">
+          <div class="criteria-item">
+            <div class="criteria-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div>
+              <div class="criteria-title">10k–1.5M followers on Instagram or YouTube</div>
+              <p class="criteria-desc">You've built an audience that trusts you. The monetisation infrastructure just isn't there yet — or it's massively underperforming.</p>
+            </div>
+          </div>
+          <div class="criteria-item">
+            <div class="criteria-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+            <div>
+              <div class="criteria-title">A genuine expert in your niche</div>
+              <p class="criteria-desc">Coaching, fitness, business, creator economy, UGC, finance — if your audience follows you for knowledge or transformation, we can monetise it at scale.</p>
+            </div>
+          </div>
+          <div class="criteria-item">
+            <div class="criteria-icon"><svg viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
+            <div>
+              <div class="criteria-title">High-ticket potential at $997+</div>
+              <p class="criteria-desc">Rev share only works at ticket sizes where the economics make sense for both sides. No offer yet? We help design and price it.</p>
+            </div>
+          </div>
+          <div class="criteria-item">
+            <div class="criteria-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div>
+              <div class="criteria-title">Ready to commit 5–10 hrs/month</div>
+              <p class="criteria-desc">We do the heavy lifting. Your face and voice are the product — you stay visible while we engineer everything behind the scenes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE BUILD -->
+  <section class="deliverables" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="section-tag reveal"><span class="tag">What We Build</span></div>
+          <h2 class="section-headline reveal reveal-delay-1">The full stack, <em>handled</em>.</h2>
+        </div>
+        <p class="section-body reveal reveal-delay-2">We don't do strategy decks and leave. We build, run, and own execution until the numbers are where they need to be.</p>
+      </div>
+      <div class="deliverables-grid">
+        <div class="deliver-card reveal">
+          <div class="deliver-num">01</div>
+          <div class="deliver-title">Content Engine</div>
+          <p class="deliver-desc">Your TOF game is often already working. We build MOF and BOF content into the mix so viral reach actually converts.</p>
+          <ul class="deliver-list">
+            <li>MOF educational reels — frameworks, transformations, breakdowns</li>
+            <li>BOF result reels, income proof, direct CTA content</li>
+            <li>Carousels engineered for saves and profile authority</li>
+            <li>Every caption gets engineered CTA copy with DM keyword triggers</li>
+          </ul>
+        </div>
+        <div class="deliver-card reveal reveal-delay-1">
+          <div class="deliver-num">02</div>
+          <div class="deliver-title">Funnel Infrastructure</div>
+          <p class="deliver-desc">A purpose-built landing page with a free VSL, gated behind an opt-in. High-ticket applicants route to book-a-call. Mid-budget to a sales page. Lower intent into email nurture.</p>
+          <ul class="deliver-list">
+            <li>Landing page with VSL or training opt-in</li>
+            <li>Typeform qualification — budget, timeline, intent</li>
+            <li>Split routing: call flow, sales page, or nurture</li>
+            <li>Full checkout and payment infrastructure</li>
+          </ul>
+        </div>
+        <div class="deliver-card reveal reveal-delay-2">
+          <div class="deliver-num">03</div>
+          <div class="deliver-title">DM & Nurture System</div>
+          <p class="deliver-desc">An AI setter goes live in your DMs immediately to catch every inbound from existing traffic. No more leads going cold while you sleep.</p>
+          <ul class="deliver-list">
+            <li>24/7 AI setter qualifying inbound DMs</li>
+            <li>Telegram broadcast channel built and seeded</li>
+            <li>Daily story system scripted to push followers to DMs</li>
+            <li>Email welcome sequence live on day one</li>
+          </ul>
+        </div>
+        <div class="deliver-card reveal reveal-delay-3">
+          <div class="deliver-num">04</div>
+          <div class="deliver-title">Offer Stack</div>
+          <p class="deliver-desc">Three tiers built to capture every level of audience readiness — from viral traffic to serious buyers ready to invest $5–10k.</p>
+          <ul class="deliver-list">
+            <li>Low-ticket entry product at $97–$197 for viral traffic</li>
+            <li>Mid-ticket group cohort or course at $1,500–$2,500</li>
+            <li>High-ticket 1-on-1 or agency offer at $5,000–$10,000</li>
+            <li>Offer positioning, pricing strategy, and sales copy</li>
+          </ul>
+        </div>
+        <div class="deliver-card reveal reveal-delay-4">
+          <div class="deliver-num">05</div>
+          <div class="deliver-title">Launch Sequence</div>
+          <p class="deliver-desc">Multi-week waitlist campaign. Daily stories, Typeform opt-in, Telegram broadcast, launch emails. The fastest path to a $100k+ launch.</p>
+          <ul class="deliver-list">
+            <li>Full launch calendar from waitlist to close</li>
+            <li>VSL, application funnel, 48-hour urgency close</li>
+            <li>Pre-launch email warming sequence</li>
+            <li>Challenge funnels and multi-episode pitch frameworks</li>
+          </ul>
+        </div>
+        <div class="deliver-card reveal reveal-delay-5">
+          <div class="deliver-num">06</div>
+          <div class="deliver-title">Sales System</div>
+          <p class="deliver-desc">AI setter handles all inbound 24/7. Pre-recorded voice notes deploy post-qualification. Human setters follow up. No unqualified call ever gets booked.</p>
+          <ul class="deliver-list">
+            <li>AI setter routes and qualifies all DM leads</li>
+            <li>Voice note sequences to build trust pre-call</li>
+            <li>Human setter follow-up on warm leads</li>
+            <li>Closer playbook for all high-ticket calls</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPTH SECTION -->
+  <section style="background: var(--bg); border-top: 1px solid var(--border); padding: 80px 0;">
+    <div class="container">
+      <div class="depth-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+        <div>
+          <span class="tag reveal">Full Service</span>
+          <h2 class="reveal reveal-delay-1" style="font-family: var(--serif); font-size: clamp(32px, 4vw, 60px); line-height: 1.05; letter-spacing: -0.025em; color: var(--text); margin-top: 24px;">You do two things.<br><em style="font-style:italic; color:var(--gold);">We do everything else.</em></h2>
+          <p class="reveal reveal-delay-2" style="margin-top: 20px; font-size: 15px; color: var(--text-2); line-height: 1.8;">Most agencies hand you a strategy deck and wish you luck. We're operators. We go in, build the entire machine, and run it. Your only jobs are to show up on camera and deliver results to your clients.</p>
+          <div class="reveal reveal-delay-3" style="margin-top: 36px; display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+            <div style="background: rgba(200,164,90,0.06); padding: 20px 24px; border-bottom: 1px solid var(--border);">
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px;">You do</div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); font-weight: 600;"><span style="color: var(--gold);">01</span> Fulfill your offer — deliver results to clients</div>
+                <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); font-weight: 600;"><span style="color: var(--gold);">02</span> Record content — show up on camera</div>
+              </div>
+            </div>
+            <div style="background: var(--bg-3); padding: 20px 24px;">
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 10px;">We handle</div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px;">
+                <div style="font-size: 12px; color: var(--text-2); display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--gold-dim); flex-shrink:0;">→</span>Full launch strategy & execution</div>
+                <div style="font-size: 12px; color: var(--text-2); display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--gold-dim); flex-shrink:0;">→</span>Content scripting & direction</div>
+                <div style="font-size: 12px; color: var(--text-2); display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--gold-dim); flex-shrink:0;">→</span>Competitor research & analysis</div>
+                <div style="font-size: 12px; color: var(--text-2); display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--gold-dim); flex-shrink:0;">→</span>Paid ads management</div>
+                <div style="font-size: 12px; color: var(--text-2); display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--gold-dim); flex-shrink:0;">→</span>Setter recruitment & management</div>
+                <div style="font-size: 12px; color: var(--text-2); display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--gold-dim); flex-shrink:0;">→</span>Closer recruitment & management</div>
+                <div style="font-size: 12px; color: var(--text-2); display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--gold-dim); flex-shrink:0;">→</span>AI-powered revenue tracking backend</div>
+                <div style="font-size: 12px; color: var(--text-2); display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--gold-dim); flex-shrink:0;">→</span>Email, DM & funnel automation</div>
+                <div style="font-size: 12px; color: var(--text-2); display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--gold-dim); flex-shrink:0;">→</span>Offer design & pricing strategy</div>
+                <div style="font-size: 12px; color: var(--text-2); display: flex; align-items: flex-start; gap: 8px;"><span style="color: var(--gold-dim); flex-shrink:0;">→</span>Sales system & call infrastructure</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2" style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="background: var(--bg-2); border: 1px solid var(--border); border-radius: 14px; padding: 32px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold) 0%, transparent 70%);"></div>
+            <div style="font-family: var(--serif); font-size: 48px; color: var(--gold); letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px;">100%</div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px;">Done For You</div>
+            <div style="font-size: 12px; color: var(--text-2); line-height: 1.65;">Every moving part — from the first piece of content that goes out to the closer on the phone — is built, managed, and optimised by us.</div>
+          </div>
+          <div style="background: var(--bg-2); border: 1px solid var(--border); border-radius: 14px; padding: 32px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold) 0%, transparent 70%);"></div>
+            <div style="font-family: var(--serif); font-size: 48px; color: var(--gold); letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px;">AI-First</div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px;">Revenue Tracking Backend</div>
+            <div style="font-size: 12px; color: var(--text-2); line-height: 1.65;">Custom AI infrastructure tracks every lead, call, and sale. You always know exactly what's working, what's not, and what it's worth.</div>
+          </div>
+          <div style="background: var(--bg-2); border: 1px solid var(--border); border-radius: 14px; padding: 32px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold) 0%, transparent 70%);"></div>
+            <div style="font-family: var(--serif); font-size: 48px; color: var(--gold); letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px;">Sales Floor</div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px;">Setters & Closers, Managed</div>
+            <div style="font-size: 12px; color: var(--text-2); line-height: 1.65;">We recruit, train, and manage your entire sales team. You never sit on a cold call or chase a lead again.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODEL -->
+  <section class="model" id="model">
+    <div class="container">
+      <div class="model-inner">
+        <div>
+          <span class="tag reveal">The Model</span>
+          <h2 class="model-headline reveal reveal-delay-1">We only win<br><em>when you win.</em></h2>
+          <p class="model-sub reveal reveal-delay-2">No retainers. No monthly fees. We work on pure revenue share — which means we're completely incentivised to perform. If we don't, we don't get paid.</p>
+          <p class="model-sub reveal reveal-delay-3" style="margin-top: 14px;">This is why we're selective. We only take clients where we're confident in a strong outcome.</p>
+        </div>
+        <div class="model-card reveal reveal-delay-2">
+          <div class="model-card-title">Model Comparison</div>
+          <div class="comparison">
+            <div class="comp-row"><div class="comp-cell header"></div><div class="comp-cell header">Typical Agency</div><div class="comp-cell header gold"><Brand Name></div></div>
+            <div class="comp-row"><div class="comp-cell highlight">Monthly retainer</div><div class="comp-cell">$3k–$15k/mo</div><div class="comp-cell gold">None</div></div>
+            <div class="comp-row"><div class="comp-cell highlight">Revenue share</div><div class="comp-cell cross">Rarely</div><div class="comp-cell gold check">Always</div></div>
+            <div class="comp-row"><div class="comp-cell highlight">Incentive to perform</div><div class="comp-cell cross">Minimal</div><div class="comp-cell gold check">Maximum</div></div>
+            <div class="comp-row"><div class="comp-cell highlight">Full execution</div><div class="comp-cell cross">Rarely</div><div class="comp-cell gold check">Always</div></div>
+            <div class="comp-row"><div class="comp-cell highlight">Offer required</div><div class="comp-cell cross">Usually yes</div><div class="comp-cell gold check">We build it</div></div>
+            <div class="comp-row"><div class="comp-cell highlight">Selective intake</div><div class="comp-cell cross">Anyone pays</div><div class="comp-cell gold check">Qualified only</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="results">
+    <div class="testimonials-video-bg">
+      <video autoplay loop muted playsinline>
+        <source src="websitevid.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="testimonials-video-mask"></div>
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <div class="reveal" style="margin-bottom: 16px;"><span class="tag">Results</span></div>
+        <h2 class="reveal reveal-delay-1" style="font-family: var(--serif); font-size: clamp(32px, 4vw, 56px); line-height: 1.08; letter-spacing: -0.025em; color: var(--text);">Numbers don't <em style="font-style:italic; color:var(--gold);">lie.</em></h2>
+        <p class="reveal reveal-delay-2" style="margin-top: 12px; font-size: 15px; color: var(--text-2);">Real client campaigns. No projections. No "potential revenue" math.</p>
+      </div>
+      <div class="testi-grid">
+
+        <div class="testi-card reveal">
+          <div class="testi-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <p class="testi-quote">"I had 22k followers and was making maybe $4k a month from my coaching. Within 90 days we had a proper funnel running and I hit $31k in a single launch."</p>
+          <div><div class="testi-result">$31k</div><div class="testi-result-label">Single launch revenue</div></div>
+          <div class="testi-author"><div class="testi-avatar">MR</div><div><div class="testi-name">Marcus R.</div><div class="testi-handle">Fitness Coach · 22k Instagram</div></div></div>
+        </div>
+
+        <div class="testi-card reveal reveal-delay-1">
+          <div class="testi-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <p class="testi-quote">"The webinar funnel they built is the best investment I've made. 1,800 registrants, 34% show rate, $147k over three weeks."</p>
+          <div><div class="testi-result">$147k</div><div class="testi-result-label">3-week webinar campaign</div></div>
+          <div class="testi-author"><div class="testi-avatar">SK</div><div><div class="testi-name">Simone K.</div><div class="testi-handle">Business Coach · 89k YouTube</div></div></div>
+        </div>
+
+        <div class="testi-card reveal reveal-delay-2">
+          <div class="testi-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <p class="testi-quote">"No offer, no email list, 9k followers. They built the entire thing from scratch. $34k in 14 weeks on a clothing brand offer. With zero paid ads."</p>
+          <div><div class="testi-result">$34k</div><div class="testi-result-label">14 weeks · no ads · 9k followers</div></div>
+          <div class="testi-author"><div class="testi-avatar">V</div><div><div class="testi-name">Victor O.</div><div class="testi-handle">Clothing Brand · 9k Instagram</div></div></div>
+        </div>
+
+        <div class="testi-card reveal reveal-delay-3">
+          <div class="testi-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <p class="testi-quote">"$250k in 14 days. Challenge funnel, 3-episode series, closed after episode 3. Sales floor of 10+ closers, offers at $1,450 and $5,000. The system was airtight."</p>
+          <div><div class="testi-result">$250k</div><div class="testi-result-label">14 days · AI Arbitrage offer</div></div>
+          <div class="testi-context">
+            <div class="testi-context-item">Challenge Funnel — 3-episode series</div>
+            <div class="testi-context-item">Pitched after episode 3, closed for 14 days</div>
+            <div class="testi-context-item">Offers at $1,450 &amp; $5,000</div>
+            <div class="testi-context-item">Sales floor of 10+ closers</div>
+          </div>
+          <div class="testi-author"><div class="testi-avatar">—</div><div><div class="testi-name">Anonymous</div><div class="testi-handle">Creator · 1.5M followers</div></div></div>
+        </div>
+
+        <div class="testi-card reveal reveal-delay-4">
+          <div class="testi-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <p class="testi-quote">"I'd tried two agencies before. Both underdelivered. This was different — they had more skin in the game than I did. Email list went from 1,100 to 14k."</p>
+          <div><div class="testi-result">14,000</div><div class="testi-result-label">Email subscribers (from 1,100)</div></div>
+          <div class="testi-author"><div class="testi-avatar">JL</div><div><div class="testi-name">Jordan L.</div><div class="testi-handle">Mindset Coach · 41k Instagram</div></div></div>
+        </div>
+
+        <div class="testi-card reveal reveal-delay-5">
+          <div class="testi-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <p class="testi-quote">"We went from sporadic $3–4k months to a consistent $84k MRR in under six months. The email and DM system they built runs on its own. I haven't touched it in weeks."</p>
+          <div><div class="testi-result">$84k</div><div class="testi-result-label">Monthly recurring revenue</div></div>
+          <div class="testi-author"><div class="testi-avatar">TR</div><div><div class="testi-name">Tyler R.</div><div class="testi-handle">Mindset Coach · 67k YouTube</div></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE AUDIT -->
+  <section class="audit" id="audit">
+    <div class="container">
+      <div class="audit-grid">
+        <div>
+          <span class="tag reveal">Free Audit Call</span>
+          <h2 class="audit-headline reveal reveal-delay-1">We'll tell you exactly what's <em>leaking revenue.</em></h2>
+          <p class="audit-sub reveal reveal-delay-2">On the call, we audit your full setup across five dimensions — free, no pitch, no obligation. Most creators find out they're leaving $20k–$100k+ per month on the table.</p>
+          <div class="audit-cta-row reveal reveal-delay-3">
+            <a href="#book" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              Book Free Audit
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+            <p class="audit-note">30 min · no pitch · just answers</p>
+          </div>
+        </div>
+        <div class="audit-list reveal reveal-delay-1">
+          <div class="audit-item">
+            <div class="audit-item-header"><div class="audit-item-title">Content Strategy</div><div class="audit-step-num">01</div></div>
+            <p class="audit-item-desc">We analyse your TOF/MOF/BOF mix, competitor content data, caption engineering, and CTA structure. Most creators are all TOF — viral reach with no conversion layer underneath.</p>
+          </div>
+          <div class="audit-item">
+            <div class="audit-item-header"><div class="audit-item-title">Offer Structure</div><div class="audit-step-num">02</div></div>
+            <p class="audit-item-desc">We map your current offer stack (or lack of one), identify pricing gaps, and show you exactly where a three-tier structure would unlock new revenue without new followers.</p>
+          </div>
+          <div class="audit-item">
+            <div class="audit-item-header"><div class="audit-item-title">Funnel Infrastructure</div><div class="audit-step-num">03</div></div>
+            <p class="audit-item-desc">Landing pages, VSL opt-ins, qualification gates, checkout flows. With significant reach, even a 0.5% opt-in rate on a proper funnel generates thousands of warm leads per month.</p>
+          </div>
+          <div class="audit-item">
+            <div class="audit-item-header"><div class="audit-item-title">Lead Nurturing</div><div class="audit-step-num">04</div></div>
+            <p class="audit-item-desc">Email sequences, Telegram channels, DM follow-up. Without a nurture stack, anyone who clicks away without booking is permanently lost — usually thousands of leads per month.</p>
+          </div>
+          <div class="audit-item">
+            <div class="audit-item-header"><div class="audit-item-title">Sales System</div><div class="audit-step-num">05</div></div>
+            <p class="audit-item-desc">DM automation, setter qualification, closer playbooks, Calendly gating. Most creators are taking unqualified calls or missing inbound leads entirely — both are extremely expensive.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VAULT SCROLL SECTION -->
+  <section class="vault-section" id="vault">
+    <div class="vault-sticky">
+      <div class="vault-frame">
+        <video class="vault-video" id="vaultVideo" src="vault.mp4" muted playsinline preload="auto"></video>
+        <div class="vault-overlay">
+          <div class="vault-text" id="vaultText">
+            <div class="vault-tag">The Other Side</div>
+            <h2 class="vault-headline">This is what's<br><em>waiting for you.</em></h2>
+            <p class="vault-sub">Most creators sit on six figures of untapped revenue. We unlock it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-grid">
+        <div>
+          <span class="tag reveal">FAQ</span>
+          <h2 class="section-headline reveal reveal-delay-1" style="margin-top: 20px;">The questions<br><em>everyone asks.</em></h2>
+          <p style="margin-top: 16px; font-size: 14px; color: var(--text-2); line-height: 1.75;" class="reveal reveal-delay-2">If yours isn't here, book the call and we'll answer it directly.</p>
+        </div>
+        <div class="faq-list reveal reveal-delay-1">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What percentage do you take?</span><svg class="faq-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">Depends on the offer, audience size, and how much we're building from scratch. Typical range is 15–30% of revenue generated through our campaigns. Everything is agreed upfront in writing — no ambiguity.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need an existing offer?</span><svg class="faq-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">No. You need expertise in your niche and an audience that trusts you. If you don't have an offer yet, we design and build it. Many of our best results have come from creating the offer stack from scratch.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long until I see results?</span><svg class="faq-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">First launch typically takes 6–10 weeks to architect and execute properly. After the first launch, subsequent campaigns run faster because the infrastructure is already in place.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need to run ads?</span><svg class="faq-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">Not necessarily. Many of our best campaigns run organic-first. Ads are only introduced when the organic funnel is converting and the economics justify scaling with budget.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How selective are you?</span><svg class="faq-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">Very. We take 2–3 new clients per quarter maximum. If we don't see a clear path to strong ROI for both sides, we won't take you on — a bad fit wastes your time and ours.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="apply">
+    <div class="container">
+      <div class="cta-inner">
+        <span class="tag">2–3 Spots Per Quarter</span>
+        <h2 class="cta-headline">Find out what your<br><em>audience is really worth.</em></h2>
+        <p class="cta-sub">Book a free 30-minute audit call. We'll analyse your setup, show you exactly where revenue is leaking, and tell you honestly whether we can help.</p>
+        <div class="cta-actions">
+          <a href="#book" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 15px; padding: 18px 34px;">
+            Book Your Free Audit Call
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <p class="cta-note">30 min · free · no pitch · just answers</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#" class="footer-logo">ZI<span>P.</span></a>
+        <p class="footer-copy">© 2026 <Brand Name>. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="https://www.youtube.com/watch?v=7RjBUneXVjo&t" target="_blank" rel="noopener noreferrer" title="YouTube">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+          </a>
+          <a href="https://instagram.com/<your-handle>/" target="_blank" rel="noopener noreferrer">DM Me</a>
+          <a href="#book" target="_blank" rel="noopener noreferrer">Book Audit</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => { if (!el.closest('.hero')) observer.observe(el); });
+
+    // Hero animations on load
+    document.querySelectorAll('.hero .reveal').forEach(el => {
+      const delay = parseInt(el.className.match(/reveal-delay-(\d)/)?.[1] ?? 0) * 80 + 200;
+      setTimeout(() => el.classList.add('visible'), delay);
+    });
+
+    // ── VAULT AUTOPLAY ────────────────────────────────────────
+    (function() {
+      const video = document.getElementById('vaultVideo');
+      const text = document.getElementById('vaultText');
+      if (!video) return;
+
+      video.currentTime = 0;
+
+      // Play when 40% visible, pause when out of view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            video.play();
+            setTimeout(() => text && text.classList.add('visible'), 800);
+          } else {
+            video.pause();
+            video.currentTime = 0;
+            text && text.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.4 });
+
+      observer.observe(video);
+    })();
+
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // ── AUDIT MODAL ───────────────────────────────────────────
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const directUrl = params.get('url');
+      const shareId = params.get('id');
+      if (!directUrl && !shareId) return;
+
+      const rawName = params.get('name') ? decodeURIComponent(params.get('name')) : null;
+      const name = rawName ? rawName.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])) : null;
+      const rawUrl = directUrl ? decodeURIComponent(directUrl) : `https://<your-audit-domain>.com/share/${shareId}`;
+      // Only allow http/https to block javascript: protocol injection
+      const auditUrl = /^https?:\/\//i.test(rawUrl) ? rawUrl : 'https://<your-domain>.com';
+
+      // Inject styles
+      const style = document.createElement('style');
+      style.textContent = `
+        .audit-backdrop {
+          position: fixed; inset: 0; z-index: 999;
+          background: rgba(11,10,8,0.75);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          display: flex; align-items: flex-end; justify-content: center;
+          padding: 24px;
+        }
+        @media (min-width: 600px) {
+          .audit-backdrop { align-items: center; }
+        }
+        .audit-backdrop.visible { opacity: 1; }
+        .audit-modal {
+          background: #181510;
+          border: 1px solid #2E2920;
+          border-radius: 20px;
+          padding: 44px 40px;
+          width: 100%; max-width: 520px;
+          position: relative;
+          transform: translateY(60px);
+          opacity: 0;
+          transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), opacity 0.6s cubic-bezier(0.16,1,0.3,1);
+          text-align: center;
+        }
+        @media (max-width: 600px) { .audit-modal { padding: 32px 24px; } }
+        .audit-modal::before {
+          content: '';
+          position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
+          background: linear-gradient(90deg, transparent, #C8A45A, transparent);
+        }
+        .audit-backdrop.visible .audit-modal {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        .audit-modal-close {
+          position: absolute; top: 16px; right: 18px;
+          background: none; border: none; cursor: pointer;
+          color: #4A4438; font-size: 20px; line-height: 1;
+          transition: color 0.2s ease;
+        }
+        .audit-modal-close:hover { color: #8A8070; }
+        .audit-badge {
+          display: inline-flex; align-items: center; gap: 7px;
+          font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+          text-transform: uppercase; color: #C8A45A;
+          background: rgba(200,164,90,0.08);
+          border: 1px solid rgba(200,164,90,0.2);
+          padding: 5px 12px; border-radius: 100px; margin-bottom: 24px;
+        }
+        .audit-badge::before {
+          content: ''; width: 5px; height: 5px;
+          background: #C8A45A; border-radius: 50%;
+          animation: auditPulse 2s ease-in-out infinite;
+        }
+        @keyframes auditPulse {
+          0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)}
+        }
+        .audit-modal h2 {
+          font-family: 'DM Serif Display', Georgia, serif;
+          font-size: clamp(24px,4vw,36px);
+          line-height: 1.1; letter-spacing: -0.025em;
+          color: #EDE8DF; margin-bottom: 10px;
+        }
+        .audit-modal h2 em { font-style: italic; color: #C8A45A; }
+        .audit-modal-sub { font-size: 13px; color: #8A8070; margin-bottom: 28px; line-height: 1.6; }
+        .audit-inside {
+          background: #111009; border: 1px solid #231F18;
+          border-radius: 10px; padding: 16px 20px;
+          margin-bottom: 24px; text-align: left;
+        }
+        .audit-inside-label {
+          font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+          text-transform: uppercase; color: #4A4438; margin-bottom: 12px;
+        }
+        .audit-inside-item {
+          display: flex; align-items: center; gap: 8px;
+          font-size: 12px; color: #8A8070; margin-bottom: 8px;
+        }
+        .audit-inside-item:last-child { margin-bottom: 0; }
+        .audit-inside-dot { width: 5px; height: 5px; background: #7A6030; border-radius: 50%; flex-shrink: 0; }
+        .audit-cta {
+          display: flex; align-items: center; justify-content: center; gap: 10px;
+          width: 100%; background: #C8A45A; color: #0B0A08;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 15px; font-weight: 700;
+          padding: 16px 28px; border-radius: 100px;
+          text-decoration: none; border: none; cursor: pointer;
+          transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s ease;
+          margin-bottom: 10px;
+        }
+        .audit-cta:hover { transform: translateY(-2px) scale(1.02); opacity: 0.92; }
+        .audit-cta:active { transform: scale(0.98); }
+        .audit-cta-note { font-size: 11px; color: #4A4438; }
+      `;
+      document.head.appendChild(style);
+
+      // Build modal with safe DOM methods (no user content in innerHTML)
+      const backdrop = document.createElement('div');
+      backdrop.className = 'audit-backdrop';
+      backdrop.innerHTML = `
+        <div class="audit-modal">
+          <button class="audit-modal-close" id="auditClose">✕</button>
+          <div class="audit-badge">Your Audit Is Ready</div>
+          <h2 class="audit-modal-headline"></h2>
+          <p class="audit-modal-sub"></p>
+          <div class="audit-inside">
+            <div class="audit-inside-label">What's inside</div>
+            <div class="audit-inside-item"><div class="audit-inside-dot"></div>Content strategy breakdown</div>
+            <div class="audit-inside-item"><div class="audit-inside-dot"></div>Offer structure & revenue gap analysis</div>
+            <div class="audit-inside-item"><div class="audit-inside-dot"></div>Funnel infrastructure score</div>
+            <div class="audit-inside-item"><div class="audit-inside-dot"></div>Lead nurturing & sales system assessment</div>
+            <div class="audit-inside-item"><div class="audit-inside-dot"></div>Exact quick wins you can act on today</div>
+          </div>
+          <a id="auditCtaBtn" target="_blank" rel="noopener noreferrer" class="audit-cta">
+            View My Audit
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <p class="audit-cta-note">Your link expires in 14 days</p>
+        </div>
+      `;
+
+      // Safely set user-controlled content via DOM (not innerHTML)
+      const h2 = backdrop.querySelector('.audit-modal-headline');
+      if (name) {
+        h2.appendChild(document.createTextNode(name + ', your audit'));
+        h2.innerHTML += '<br>is <em>ready.</em>';
+      } else {
+        h2.innerHTML = 'Your growth audit<br>is <em>ready.</em>';
+      }
+      const sub = backdrop.querySelector('.audit-modal-sub');
+      if (name) {
+        sub.appendChild(document.createTextNode('Prepared exclusively for '));
+        const strong = document.createElement('strong');
+        strong.style.color = '#EDE8DF';
+        strong.textContent = name;
+        sub.appendChild(strong);
+        sub.appendChild(document.createTextNode(' by <Brand Name>'));
+      } else {
+        sub.innerHTML = 'Prepared exclusively for you by <strong style="color:#EDE8DF"><Brand Name></strong>';
+      }
+      backdrop.querySelector('#auditCtaBtn').href = auditUrl;
+
+      document.body.appendChild(backdrop);
+
+      // Close on backdrop click or X
+      backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) closeModal();
+      });
+      document.getElementById('auditClose').addEventListener('click', closeModal);
+
+      function closeModal() {
+        backdrop.style.opacity = '0';
+        backdrop.querySelector('.audit-modal').style.transform = 'translateY(60px)';
+        backdrop.querySelector('.audit-modal').style.opacity = '0';
+        setTimeout(() => backdrop.remove(), 500);
+      }
+
+      // Show after 3.5s
+      setTimeout(() => backdrop.classList.add('visible'), 3500);
+    })();
+  </script>
+</body>
+</html>

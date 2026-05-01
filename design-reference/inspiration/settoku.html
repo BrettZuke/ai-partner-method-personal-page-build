@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><Reference Site>.ai — AI DM Setter That Closes</title>
+  <meta name="description" content="<Reference Site>.ai qualifies your Instagram leads and books strategy calls automatically — 24/7, no commission, trained on your voice. Powered by Claude Opus."/>
+  <meta property="og:title" content="<Reference Site>.ai — AI DM Setter That Closes"/>
+  <meta property="og:description" content="The AI setter that closes deals automatically. No commission. Never forgets a lead. Built for creators who are leaving money on the table."/>
+  <meta property="og:url" content="https://<reference-site>.app/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://<reference-site>.app/og.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="<Reference Site>.ai — AI DM Setter That Closes"/>
+  <meta name="twitter:description" content="The AI setter that closes deals automatically. No commission. Never forgets a lead."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23f97316'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-size='20' font-family='sans-serif'>説</text></svg>"/>
+  <link rel="preconnect" href="https://api.fontshare.com"/>
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #060606;
+      --surface:   #0d0d0d;
+      --border:    rgba(255,255,255,0.07);
+      --border2:   rgba(255,255,255,0.13);
+      --text:      #f0f0f0;
+      --muted:     rgba(255,255,255,0.38);
+      --muted2:    rgba(255,255,255,0.58);
+      --orange:    #f97316;
+      --orange-l:  #fb923c;
+      --orange-d:  #ea580c;
+      --orange-xs: rgba(249,115,22,0.08);
+      --orange-sm: rgba(249,115,22,0.14);
+      --green:     #22c55e;
+      --red:       #ef4444;
+      --expo:      cubic-bezier(0.16,1,0.3,1);
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:'Satoshi',sans-serif;
+      background:var(--bg); color:var(--text);
+      overflow-x:hidden; -webkit-font-smoothing:antialiased;
+    }
+    a { text-decoration:none; color:inherit; }
+
+    /* ── NOISE ── */
+    .noise {
+      position:fixed; inset:0; z-index:990; pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity:0.025;
+    }
+
+    /* ── ORBS — GPU-only transforms, no blur on scroll ── */
+    .orb { position:fixed; border-radius:50%; filter:blur(80px); pointer-events:none; z-index:0; will-change:transform; }
+    .orb-1 {
+      width:600px; height:600px;
+      background:radial-gradient(circle, rgba(249,115,22,.13) 0%, transparent 65%);
+      top:-220px; left:-160px;
+      animation:orb-drift 18s ease-in-out infinite alternate;
+    }
+    .orb-2 {
+      width:460px; height:460px;
+      background:radial-gradient(circle, rgba(249,115,22,.07) 0%, transparent 65%);
+      bottom:0; right:-120px;
+      animation:orb-drift 24s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes orb-drift {
+      from { transform:translate(0,0); }
+      to   { transform:translate(36px,24px); }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity:0; transform:translateY(32px);
+      transition:opacity .85s var(--expo), transform .85s var(--expo);
+    }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    .d1{transition-delay:.08s} .d2{transition-delay:.17s}
+    .d3{transition-delay:.26s} .d4{transition-delay:.36s}
+
+    /* ── NAV ── */
+    nav {
+      position:fixed; top:0; left:0; right:0;
+      z-index:100; padding:20px 24px;
+      display:flex; justify-content:center;
+    }
+    .nav-pill {
+      display:flex; align-items:center; gap:36px;
+      background:rgba(6,6,6,.85);
+      backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+      border:1px solid var(--border2);
+      border-radius:100px; padding:7px 7px 7px 22px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 16px 48px rgba(0,0,0,.5);
+    }
+    .nav-logo {
+      font-family:'Cabinet Grotesk',sans-serif;
+      font-size:17px; font-weight:900; letter-spacing:-.3px;
+      background:linear-gradient(135deg,#fff 40%,var(--orange-l));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .nav-links { display:flex; gap:24px; }
+    .nav-links a { font-size:13px; font-weight:500; color:var(--muted2); transition:color .2s; }
+    .nav-links a:hover { color:var(--text); }
+    .nav-ctas { display:flex; gap:8px; align-items:center; }
+    .nav-ghost {
+      padding:9px 16px; border-radius:100px;
+      border:1px solid var(--border2); color:var(--muted2);
+      font-size:13px; font-weight:500;
+      transition:border-color .3s, color .3s; background:none; cursor:pointer;
+    }
+    .nav-ghost:hover { border-color:rgba(249,115,22,.4); color:var(--text); }
+    .nav-cta {
+      display:flex; align-items:center; gap:9px;
+      background:var(--orange); color:#fff;
+      padding:9px 14px 9px 18px; border-radius:100px;
+      font-size:13px; font-weight:700;
+      transition:background .3s, transform .3s var(--expo);
+      position:relative; overflow:hidden;
+    }
+    .nav-cta::after {
+      content:''; position:absolute; top:0; left:-100%; width:60%; height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+      animation:shine 3.5s ease-in-out infinite;
+    }
+    @keyframes shine { 0%{left:-100%} 25%,100%{left:150%} }
+    .nav-cta:hover { background:var(--orange-d); transform:scale(1.02); }
+    .nav-cta-ico {
+      width:24px; height:24px; border-radius:50%;
+      background:rgba(255,255,255,.18);
+      display:flex; align-items:center; justify-content:center; font-size:11px;
+    }
+    @media(max-width:768px){ nav{display:none} }
+
+    /* ── HERO — centred ── */
+    .hero {
+      min-height:100dvh; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; text-align:center;
+      padding:140px 24px 80px;
+      position:relative; z-index:1;
+    }
+    .hero-badges {
+      display:flex; align-items:center; gap:10px;
+      flex-wrap:wrap; justify-content:center;
+      margin-bottom:36px;
+    }
+    .badge {
+      display:inline-flex; align-items:center; gap:5px;
+      padding:3px 10px; border-radius:100px;
+      font-size:9px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    }
+    .badge-orange {
+      background:var(--orange-sm); border:1px solid rgba(249,115,22,.3); color:var(--orange-l);
+    }
+    .badge-white {
+      background:rgba(255,255,255,.05); border:1px solid var(--border); color:var(--muted2);
+    }
+    .badge-dot {
+      width:5px; height:5px; border-radius:50%; background:var(--green);
+      animation:dot-pulse 2s ease-in-out infinite;
+    }
+    @keyframes dot-pulse{ 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    .hero-title {
+      font-family:'Cabinet Grotesk',sans-serif;
+      font-size:clamp(32px,5vw,68px);
+      font-weight:900; letter-spacing:-2.5px; line-height:.96;
+      max-width:1100px; margin-bottom:30px;
+    }
+    .hero-title-type {
+      color:var(--orange);
+      text-shadow:0 0 28px rgba(249,115,22,.55), 0 0 60px rgba(249,115,22,.2);
+      white-space:nowrap;
+    }
+    .hero-cursor {
+      display:inline-block; width:5px; border-radius:1px;
+      background:var(--orange); margin-left:3px;
+      animation:cursor-blink .45s step-end infinite;
+      vertical-align:middle; height:.85em;
+      box-shadow:0 0 12px rgba(249,115,22,.9), 0 0 24px rgba(249,115,22,.4);
+    }
+    @keyframes cursor-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    .hero-sub {
+      font-size:clamp(15px,1.7vw,19px); color:var(--muted2);
+      max-width:500px; line-height:1.8; margin-bottom:12px;
+    }
+    .hero-kanji {
+      font-size:13px; color:var(--muted); letter-spacing:.08em; margin-bottom:48px;
+    }
+    .hero-kanji span { color:var(--orange-l); font-weight:700; }
+
+    .hero-btns { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+    .btn-primary {
+      display:flex; align-items:center; gap:10px;
+      background:var(--orange); color:#fff;
+      padding:15px 18px 15px 26px; border-radius:100px;
+      font-size:15px; font-weight:700; border:none; cursor:pointer;
+      transition:transform .45s var(--expo), background .3s, box-shadow .45s var(--expo);
+      position:relative; overflow:hidden;
+      animation:cta-pulse 2.8s ease-out infinite;
+      will-change:transform;
+    }
+    @keyframes cta-pulse {
+      0%  { box-shadow:0 0 0 0 rgba(249,115,22,.5); }
+      70% { box-shadow:0 0 0 14px rgba(249,115,22,0); }
+      100%{ box-shadow:0 0 0 0 rgba(249,115,22,0); }
+    }
+    .btn-primary::after {
+      content:''; position:absolute; top:0; left:-100%; width:55%; height:100%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+      animation:shine 3s ease-in-out infinite;
+    }
+    .btn-primary:hover { background:var(--orange-d); transform:translateY(-3px) scale(1.03); box-shadow:0 0 0 3px rgba(249,115,22,.22), 0 10px 40px rgba(249,115,22,.4); }
+    .btn-ico {
+      width:28px; height:28px; border-radius:50%;
+      background:rgba(255,255,255,.18);
+      display:flex; align-items:center; justify-content:center; font-size:12px;
+      transition:transform .4s var(--expo); flex-shrink:0;
+    }
+    .btn-primary:hover .btn-ico { transform:translate(3px,-3px); }
+    .btn-ghost {
+      padding:15px 22px; border-radius:100px;
+      border:1px solid var(--border); color:var(--muted2);
+      font-size:14px; font-weight:500;
+      transition:border-color .4s var(--expo), color .3s, box-shadow .4s var(--expo), transform .4s var(--expo);
+      background:none; cursor:pointer; will-change:transform;
+    }
+    .btn-ghost:hover { border-color:rgba(249,115,22,.45); color:var(--text); transform:translateY(-2px); box-shadow:0 0 0 1px rgba(249,115,22,.12), 0 6px 24px rgba(249,115,22,.15); }
+
+    /* ── STATS ── */
+    .stats {
+      position:relative; z-index:1;
+      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg,rgba(249,115,22,.04) 0%,transparent 100%);
+      padding:32px 40px;
+      display:flex; align-items:center; justify-content:center;
+      gap:72px; flex-wrap:wrap;
+    }
+    .stat { text-align:center; }
+    .stat-n {
+      font-family:'Cabinet Grotesk',sans-serif;
+      font-size:38px; font-weight:900; letter-spacing:-1.5px;
+      background:linear-gradient(135deg,#fff,var(--orange-l));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .stat-l { font-size:12px; color:var(--muted); margin-top:4px; }
+
+    /* ── PROBLEM ── */
+    .problem-section {
+      position:relative; z-index:1;
+      max-width:1100px; margin:0 auto; padding:120px 24px;
+    }
+    .problem-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:60px;
+      align-items:start; margin-top:56px;
+    }
+    .problem-label {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(239,68,68,.08); border:1px solid rgba(239,68,68,.2);
+      color:#f87171; padding:5px 14px; border-radius:100px;
+      font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+      margin-bottom:22px;
+    }
+    .problem-title {
+      font-family:'Cabinet Grotesk',sans-serif;
+      font-size:clamp(28px,3.5vw,48px); font-weight:900;
+      letter-spacing:-1.5px; line-height:1.02; margin-bottom:18px;
+    }
+    .problem-body { font-size:15px; color:var(--muted2); line-height:1.85; }
+    .pain-list { display:flex; flex-direction:column; gap:14px; margin-top:0; }
+    .pain-item {
+      display:flex; gap:14px; align-items:flex-start;
+      padding:18px 20px;
+      background:rgba(239,68,68,.04); border:1px solid rgba(239,68,68,.1);
+      border-radius:14px;
+      transition:border-color .3s var(--expo), transform .3s var(--expo);
+    }
+    .pain-item:hover { border-color:rgba(239,68,68,.25); transform:translateX(4px); }
+    .pain-text h5 { font-size:14px; font-weight:700; margin-bottom:4px; }
+    .pain-text p  { font-size:13px; color:var(--muted2); line-height:1.6; }
+
+    .cost-compare {
+      background:rgba(255,255,255,.02); border:1px solid var(--border);
+      border-radius:20px; padding:2px;
+    }
+    .cost-compare-inner { background:#090909; border-radius:19px; padding:32px; }
+    .cost-title { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:22px; }
+    .cost-row {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0; border-bottom:1px solid var(--border);
+    }
+    .cost-row:last-child { border-bottom:none; }
+    .cost-label { font-size:13px; color:var(--muted2); }
+    .cost-val { font-family:'Cabinet Grotesk',sans-serif; font-size:22px; font-weight:900; letter-spacing:-.5px; }
+    .cost-val.bad { color:#f87171; }
+    .cost-val.good { color:var(--green); }
+    .cost-note { font-size:11px; color:var(--muted); margin-top:3px; }
+    .cost-vs { text-align:center; padding:14px 0; font-size:12px; font-weight:700; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
+
+    /* ── IG MARQUEE ── */
+    .marquee-section {
+      padding:72px 0; overflow:hidden;
+      border-bottom:1px solid var(--border);
+      position:relative; z-index:1;
+    }
+    .marquee-label {
+      text-align:center; margin-bottom:36px;
+      font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--muted);
+    }
+    .marquee-fade-l, .marquee-fade-r {
+      position:absolute; top:0; bottom:0; width:200px; z-index:2; pointer-events:none;
+    }
+    .marquee-fade-l { left:0; background:linear-gradient(90deg,var(--bg),transparent); }
+    .marquee-fade-r { right:0; background:linear-gradient(270deg,var(--bg),transparent); }
+    .marquee-row { display:flex; gap:14px; margin-bottom:14px; overflow:hidden; }
+    .marquee-track {
+      display:flex; gap:14px; width:max-content;
+      animation:scroll-l 36s linear infinite;
+      will-change:transform;
+    }
+    .marquee-track-r { animation:scroll-r 30s linear infinite; }
+    @keyframes scroll-l { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    @keyframes scroll-r { from{transform:translateX(-50%)} to{transform:translateX(0)} }
+
+    .ig-card {
+      background:rgba(255,255,255,.03); border:1px solid var(--border);
+      border-radius:16px; padding:14px 18px;
+      display:flex; align-items:center; gap:14px;
+      min-width:200px; flex-shrink:0;
+      filter:blur(5px) saturate(0.4);
+      opacity:0.3;
+      transition:filter .5s var(--expo), opacity .5s var(--expo), border-color .3s;
+      cursor:default;
+    }
+    .ig-card:hover {
+      filter:blur(0) saturate(1);
+      opacity:1;
+      border-color:rgba(249,115,22,.28);
+    }
+    .ig-avatar {
+      width:40px; height:40px; border-radius:50%; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+      font-size:15px; font-weight:800; color:#fff;
+    }
+    .ig-info { flex:1; min-width:0; }
+    .ig-handle { font-size:13px; font-weight:700; margin-bottom:2px; }
+    .ig-followers { font-size:11px; color:var(--muted); }
+
+    /* ── MEANING ── */
+    .meaning-section {
+      max-width:1100px; margin:0 auto; padding:120px 24px;
+      display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+      position:relative; z-index:1;
+    }
+    .kanji-display {
+      font-size:clamp(80px,12vw,160px); line-height:1; font-weight:900;
+      background:linear-gradient(135deg,var(--orange) 0%,var(--orange-l) 50%,rgba(249,115,22,.3) 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      margin-bottom:16px;
+    }
+    .kanji-romaji {
+      font-family:'Cabinet Grotesk',sans-serif;
+      font-size:28px; font-weight:900; letter-spacing:-1px; margin-bottom:8px;
+    }
+    .kanji-meaning { font-size:14px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; font-weight:600; }
+    .meaning-body {
+      font-family:'Cabinet Grotesk',sans-serif;
+      font-size:clamp(28px,3.5vw,44px); font-weight:900;
+      letter-spacing:-1.5px; line-height:1.05; margin-bottom:20px;
+    }
+    .meaning-p { font-size:15px; color:var(--muted2); line-height:1.85; margin-bottom:20px; }
+    .meaning-quote {
+      border-left:2px solid var(--orange); padding-left:20px;
+      font-size:14px; color:var(--muted2); line-height:1.8; font-style:italic;
+    }
+
+    /* ── EYEBROW ── */
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--orange-sm); border:1px solid rgba(249,115,22,.25);
+      color:var(--orange-l); padding:5px 14px; border-radius:100px;
+      font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+      margin-bottom:22px;
+    }
+
+    /* ── CLAUDE SECTION ── */
+    .claude-section {
+      max-width:1100px; margin:0 auto; padding:120px 24px;
+      position:relative; z-index:1;
+    }
+    .claude-card {
+      background:rgba(249,115,22,.04); border:1px solid rgba(249,115,22,.15);
+      border-radius:24px; padding:2px;
+    }
+    .claude-card-inner {
+      background:#090909; border-radius:23px; padding:60px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+      display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+    }
+    .claude-tag {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(249,115,22,.1); border:1px solid rgba(249,115,22,.2);
+      color:var(--orange-l); padding:6px 14px; border-radius:100px;
+      font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+      margin-bottom:22px;
+    }
+    .claude-title {
+      font-family:'Cabinet Grotesk',sans-serif;
+      font-size:clamp(26px,3vw,40px); font-weight:900;
+      letter-spacing:-1.5px; line-height:1.05; margin-bottom:18px;
+    }
+    .claude-body { font-size:15px; color:var(--muted2); line-height:1.85; }
+    .anneal-steps { display:flex; flex-direction:column; }
+    .anneal-step {
+      display:flex; gap:16px; padding:16px 8px;
+      border-bottom:1px solid var(--border); border-radius:10px;
+      transition:background .4s var(--expo), padding-left .4s var(--expo);
+      cursor:default;
+    }
+    .anneal-step:last-child { border-bottom:none; }
+    .anneal-step:hover { background:rgba(249,115,22,.04); padding-left:16px; }
+    .anneal-num {
+      width:32px; height:32px; border-radius:50%; flex-shrink:0;
+      background:var(--orange-xs); border:1px solid rgba(249,115,22,.2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:11px; font-weight:800; color:var(--orange-l);
+      transition:box-shadow .4s var(--expo), border-color .4s var(--expo);
+    }
+    .anneal-step:hover .anneal-num { box-shadow:0 0 16px rgba(249,115,22,.45); border-color:rgba(249,115,22,.55); }
+    .anneal-text h5 { font-size:13px; font-weight:700; margin-bottom:3px; }
+    .anneal-text p  { font-size:12px; color:var(--muted); line-height:1.6; }
+
+    /* ── BENTO ── */
+    .bento-section { max-width:1100px; margin:0 auto; padding:0 24px 120px; position:relative; z-index:1; }
+    .bento { display:grid; grid-template-columns:repeat(12,1fr); gap:14px; margin-top:60px; }
+    .b-a{grid-column:span 7} .b-b{grid-column:span 5}
+    .b-c{grid-column:span 4} .b-d{grid-column:span 8}
+    .b-e{grid-column:span 5} .b-f{grid-column:span 7}
+
+    .bcard {
+      background:rgba(255,255,255,.02); border:1px solid var(--border);
+      border-radius:22px; padding:2px;
+      transition:border-color .5s var(--expo), transform .5s var(--expo), box-shadow .5s var(--expo);
+      will-change:transform;
+    }
+    .bcard:hover {
+      border-color:rgba(249,115,22,.3);
+      transform:translateY(-6px) scale(1.018);
+      box-shadow:0 0 0 1px rgba(249,115,22,.1), 0 24px 64px rgba(249,115,22,.12), 0 8px 24px rgba(0,0,0,.5);
+    }
+    .bcard-inner {
+      background:#090909; border-radius:21px; padding:32px; height:100%;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+    }
+    .bico {
+      width:44px; height:44px; border-radius:11px; margin-bottom:20px;
+      background:var(--orange-xs); border:1px solid rgba(249,115,22,.18);
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; font-weight:800; color:var(--orange-l); letter-spacing:-.5px;
+      font-family:'Cabinet Grotesk',sans-serif;
+      transition:background .45s var(--expo), border-color .45s var(--expo), box-shadow .45s var(--expo);
+    }
+    .bcard:hover .bico {
+      background:rgba(249,115,22,.14);
+      border-color:rgba(249,115,22,.4);
+      box-shadow:0 0 18px rgba(249,115,22,.35);
+    }
+    .btag { display:block; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--orange-l); margin-bottom:10px; }
+    .btitle { font-family:'Cabinet Grotesk',sans-serif; font-size:20px; font-weight:900; letter-spacing:-.5px; margin-bottom:10px; }
+    .bbody { font-size:13.5px; color:var(--muted2); line-height:1.75; }
+
+    .mem-rows { display:flex; flex-direction:column; gap:7px; margin-top:18px; }
+    .mem-row {
+      display:flex; gap:10px; align-items:flex-start; padding:9px 12px;
+      background:rgba(255,255,255,.025); border:1px solid var(--border); border-radius:10px;
+    }
+    .mem-k { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--orange-l); min-width:76px; margin-top:1px; }
+    .mem-v { font-size:12px; color:var(--muted2); line-height:1.5; }
+    .hot { color:var(--green); font-weight:700; }
+
+    .spam-flow { margin-top:20px; display:flex; flex-direction:column; gap:8px; }
+    .spam-row {
+      display:flex; align-items:center; gap:9px;
+      padding:8px 12px; border-radius:9px; font-size:12px; font-weight:500;
+    }
+    .spam-blocked { background:rgba(239,68,68,.05); border:1px solid rgba(239,68,68,.12); color:rgba(239,68,68,.65); text-decoration:line-through; opacity:.7; }
+    .spam-pass    { background:rgba(34,197,94,.05);  border:1px solid rgba(34,197,94,.15);  color:rgba(34,197,94,.9); }
+    .sdot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+    .sdot-r { background:var(--red); } .sdot-g { background:var(--green); }
+
+    .loop-nodes { display:flex; flex-direction:column; margin-top:18px; }
+    .loop-node { display:flex; align-items:flex-start; gap:14px; padding:10px 8px; position:relative; border-radius:10px; transition:background .4s var(--expo), padding-left .4s var(--expo); cursor:default; }
+    .loop-node:hover { background:rgba(249,115,22,.04); padding-left:14px; }
+    .loop-node:not(:last-child)::after {
+      content:''; position:absolute; left:16px; top:36px;
+      width:1px; height:calc(100% - 8px);
+      background:linear-gradient(180deg,rgba(249,115,22,.35) 0%,rgba(249,115,22,.08) 100%);
+    }
+    .lnum {
+      width:32px; height:32px; border-radius:50%; flex-shrink:0;
+      background:var(--orange-xs); border:1px solid rgba(249,115,22,.2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:11px; font-weight:800; color:var(--orange-l); position:relative; z-index:1;
+      transition:box-shadow .4s var(--expo), border-color .4s var(--expo);
+    }
+    .loop-node:hover .lnum { box-shadow:0 0 16px rgba(249,115,22,.45); border-color:rgba(249,115,22,.55); }
+    .ltext h5 { font-size:13px; font-weight:700; margin-bottom:2px; }
+    .ltext p  { font-size:12px; color:var(--muted); line-height:1.55; }
+
+    /* ── HOW IT WORKS ── */
+    .steps-section { border-top:1px solid var(--border); border-bottom:1px solid var(--border); position:relative; z-index:1; }
+    .steps-inner { max-width:1100px; margin:0 auto; padding:120px 24px; text-align:center; }
+    .sh-title {
+      font-family:'Cabinet Grotesk',sans-serif;
+      font-size:clamp(30px,4vw,52px); font-weight:900; letter-spacing:-1.5px; line-height:1.05; margin-bottom:16px;
+    }
+    .sh-sub { font-size:16px; color:var(--muted2); max-width:440px; margin:0 auto; line-height:1.8; }
+    .steps-grid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:1px; background:var(--border); border-radius:22px; overflow:hidden; margin-top:60px;
+    }
+    .step { background:#090909; padding:48px 36px; text-align:left; }
+    .step-n { font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--orange-l); margin-bottom:22px; }
+    .step h3 { font-family:'Cabinet Grotesk',sans-serif; font-size:22px; font-weight:900; letter-spacing:-.5px; margin-bottom:12px; }
+    .step p { font-size:14px; color:var(--muted2); line-height:1.8; }
+
+    /* ── PRICING ── */
+    .pricing-section { padding:120px 24px; position:relative; z-index:1; }
+    .pricing-inner { max-width:1200px; margin:0 auto; text-align:center; }
+    /* ── FINAL CTA ── */
+    .final { text-align:center; padding:160px 24px; position:relative; overflow:hidden; border-top:1px solid var(--border); z-index:1; }
+    .final-glow {
+      position:absolute; width:600px; height:600px; border-radius:50%;
+      background:radial-gradient(circle,rgba(249,115,22,.09) 0%,transparent 65%);
+      top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none;
+    }
+    .final h2 {
+      font-family:'Cabinet Grotesk',sans-serif;
+      font-size:clamp(34px,6vw,72px); font-weight:900; letter-spacing:-2.5px; line-height:1;
+      max-width:760px; margin:0 auto 22px; position:relative; z-index:1;
+    }
+    .final-grad { background:linear-gradient(135deg,var(--orange),var(--orange-l)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .final p { font-size:18px; color:var(--muted2); max-width:480px; margin:0 auto 48px; line-height:1.8; position:relative; z-index:1; }
+    .final-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top:1px solid var(--border); padding:36px 48px;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+      position:relative; z-index:1;
+    }
+    .footer-logo {
+      font-family:'Cabinet Grotesk',sans-serif; font-size:18px; font-weight:900;
+      background:linear-gradient(135deg,#fff 30%,var(--orange-l));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    footer p { font-size:12px; color:var(--muted); }
+
+    .centered { text-align:center; }
+    .centered .sh-sub { margin:0 auto; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      .problem-grid { grid-template-columns:1fr; }
+    }
+    @media(max-width:768px){
+      /* Nav — hidden on mobile, hero CTA handles conversion */
+      nav { display:none; }
+
+      /* ── Hero ── */
+      .hero {
+        padding:80px 20px 52px;
+        min-height:auto;
+        justify-content:flex-start;
+        align-items:center;
+        text-align:center;
+      }
+      .hero-badges { margin-bottom:18px; gap:6px; }
+      .badge { font-size:7px; padding:2px 8px; gap:4px; }
+      .hero-title { font-size:36px; letter-spacing:-1.8px; line-height:1.05; margin-bottom:40px; }
+      .hero-title-static { display:block; }
+      .hero-title-type { white-space:nowrap; font-size:22px; letter-spacing:-0.8px; }
+      .hero-cursor { height:.75em; }
+      .hero-sub { font-size:15px; max-width:100%; margin-bottom:10px; }
+      .hero-kanji { font-size:12px; margin-bottom:36px; }
+      .hero-btns { width:auto; }
+      .btn-primary { width:auto; justify-content:center; padding:14px 24px; font-size:14px; }
+      .btn-ghost { width:auto; justify-content:center; padding:14px 24px; font-size:13px; }
+
+      /* ── Stats ── */
+      .stats {
+        display:grid; grid-template-columns:1fr 1fr;
+        gap:0; padding:0;
+      }
+      .stats { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:16px 20px; background:none; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+      .stat { display:flex; align-items:baseline; gap:5px; padding:6px 12px; background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:100px; text-align:left; }
+      .stat-n { font-size:13px; font-weight:800; letter-spacing:-0.3px; background:none; -webkit-background-clip:unset; -webkit-text-fill-color:var(--text); color:var(--text); }
+      .stat-l { font-size:10px; color:var(--muted); margin-top:0; }
+
+      /* ── Sections — 56px vertical on mobile ── */
+      .problem-section { padding:56px 20px; }
+      .bento-section { padding:0 20px 56px; }
+      .meaning-section { grid-template-columns:1fr; gap:36px; padding:56px 20px; }
+      .claude-section { padding:56px 20px; }
+      .claude-card-inner { grid-template-columns:1fr; gap:32px; padding:24px 20px; }
+      .steps-section .steps-inner { padding:56px 20px; }
+      .step { padding:28px 20px; }
+      .pricing-section { padding:56px 20px; }
+      .final { padding:72px 20px; }
+      .final h2 { letter-spacing:-1.5px; }
+      .final p { font-size:15px; margin-bottom:32px; }
+
+      /* ── Bento cards ── */
+      .bento { grid-template-columns:1fr; margin-top:40px; }
+      .b-a,.b-b,.b-c,.b-d,.b-e,.b-f { grid-column:span 1; }
+      .bcard-inner { padding:22px 20px; }
+
+      /* ── Steps ── */
+      .steps-grid { grid-template-columns:1fr; }
+
+      /* ── Marquee ── */
+      .marquee-fade-l,.marquee-fade-r { width:40px; }
+      .marquee-section { padding:48px 0; }
+
+      /* ── Meaning / Claude ── */
+      .kanji-display { font-size:72px; }
+      .sh-title { font-size:clamp(24px,6.5vw,34px); letter-spacing:-1px; }
+
+      /* ── Footer ── */
+      footer { padding:28px 20px; flex-direction:column; text-align:center; gap:10px; }
+    }
+    @media(max-width:390px){
+      .hero { padding:72px 16px 44px; }
+      .hero-title { font-size:32px; }
+      .problem-section,.bento-section,.meaning-section,.claude-section,.pricing-section,.final { padding-left:16px; padding-right:16px; }
+      .claude-card-inner { padding:20px 16px; }
+      footer { padding:20px 16px; }
+    }
+    @media(prefers-reduced-motion:reduce){
+      *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.2s !important; }
+      html { scroll-behavior:auto; }
+      .reveal { opacity:1; transform:none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="noise" aria-hidden="true"></div>
+<div class="orb orb-1" aria-hidden="true"></div>
+<div class="orb orb-2" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-pill">
+    <div class="nav-links">
+      <a href="#problem">Why <Reference Site>.ai</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <div class="nav-ctas">
+      <a href="#book" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a call <div class="nav-cta-ico">↗</div></a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badges reveal">
+    <div class="badge badge-orange"><span class="badge-dot"></span>Powered by Claude Opus</div>
+    <div class="badge badge-white">Self-Annealing · Gets Smarter Weekly</div>
+  </div>
+
+  <h1 class="hero-title reveal d1">
+    <span class="hero-title-static">The AI setter that<br /></span><span class="hero-title-type" id="typewriter"></span><span class="hero-cursor"></span>
+  </h1>
+
+  <p class="hero-sub reveal d2">
+    Qualifies leads, handles objections, and <strong>closes deals automatically</strong> — <em>trained on your voice.</em>
+  </p>
+  <p class="hero-kanji reveal d2">
+    説得 (<Reference Site>) · <span>the Japanese art of patient persuasion</span>
+  </p>
+
+  <div class="hero-btns reveal d3">
+    <a href="#book" target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Demo <div class="btn-ico">↗</div></a>
+  </div>
+</section>
+
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat reveal"><div class="stat-n">24/7</div><div class="stat-l">365 days/yr. Always on.</div></div>
+  <div class="stat reveal d1"><div class="stat-n">$0</div><div class="stat-l">Commission spent. Every dollar is yours.</div></div>
+  <div class="stat reveal d2"><div class="stat-n">100%</div><div class="stat-l">On-brand. Every reply sounds like you.</div></div>
+  <div class="stat reveal d3"><div class="stat-n">Context</div><div class="stat-l">Fully understood. Every lead remembered.</div></div>
+</div>
+
+
+<!-- PROBLEM -->
+<section class="problem-section" id="problem">
+  <div class="reveal">
+    <div class="problem-label">The real problem</div>
+    <h2 class="problem-title">Your setter is leaking<br />deals right now.</h2>
+    <p class="problem-body">Human setters have slow days, slow replies, and off weeks — and every missed window is a deal that never closes. With <Reference Site> you don't have to <strong>hire, manage, or track anyone.</strong> It runs 24/7, closes leads non-stop, and <span style="color:var(--orange-l)">gets sharper every single week — automatically.</span></p>
+  </div>
+
+  <div class="problem-grid">
+    <div class="pain-list reveal d1">
+      <div class="pain-item">
+        <div class="pain-text">
+          <h5>They go offline. Your leads don't.</h5>
+          <p>A lead DMs at 2am fired up from your Reel. Your setter is asleep. <strong style="color:#f87171">That energy is gone by morning.</strong> So is the sale.</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-text">
+          <h5>5% commission. On every deal. Forever.</h5>
+          <p>Sell a $5k programme? <strong style="color:#f87171">That's $250 gone every single time.</strong> Even on leads that basically closed themselves.</p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-text">
+          <h5>They forget who they're talking to.</h5>
+          <p>Lead messaged three weeks ago with their whole story. Setter has no memory. <strong>Conversation starts from zero.</strong> <em>Lead feels like a number.</em></p>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-text">
+          <h5>Performance is invisible.</h5>
+          <p>Which messages convert? Where do leads drop off? <strong>With a human setter you have no idea.</strong> With <Reference Site>, <span style="color:var(--orange-l)">everything is tracked.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal d2">
+      <div class="cost-compare">
+        <div class="cost-compare-inner">
+          <div class="cost-title">Real cost comparison · $5k programme · 20 sales/mo</div>
+          <div class="cost-row" style="padding:8px 0 10px; border-bottom:1px solid rgba(255,255,255,0.06); margin-bottom:10px;">
+            <div class="cost-label" style="color:var(--muted2)">Your monthly revenue</div>
+            <div style="font-size:15px;font-weight:700;color:var(--muted2)">$60,000<span style="font-size:12px;font-weight:500;color:var(--muted)">/mo</span></div>
+          </div>
+          <div class="cost-row">
+            <div class="cost-label">Human setter (5% commission)</div>
+            <div class="cost-val bad" style="font-size:16px">$5,000<span style="font-size:12px;font-weight:500">/mo</span></div>
+          </div>
+          <div class="cost-vs">vs</div>
+          <div class="cost-row">
+            <div class="cost-label"><Reference Site> API costs</div>
+            <div class="cost-val good" style="font-size:16px">$80–120<span style="font-size:12px;font-weight:500">/mo</span></div>
+          </div>
+          <div style="margin-top:20px; padding:18px 20px; background:rgba(34,197,94,.06); border:1px solid rgba(34,197,94,.18); border-radius:14px;">
+            <div style="font-family:'Cabinet Grotesk',sans-serif;font-size:38px;font-weight:900;letter-spacing:-1.5px;color:#22c55e;line-height:1;">~$4,900<span style="font-size:16px;font-weight:700;letter-spacing:0;color:rgba(34,197,94,.7)">/mo back in your pocket</span></div>
+            <div style="font-size:13px;color:rgba(34,197,94,.8);font-weight:700;margin-top:6px;">That's $58,800 a year back in your pocket.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FEATURES -->
+<section class="bento-section" id="features">
+  <div class="reveal centered">
+    <div class="eyebrow" style="justify-content:center">What you get</div>
+    <h2 class="sh-title">Built to learn.<br />Built to last.</h2>
+    <p class="sh-sub">Most AI tools run the same script forever. <Reference Site> gets sharper every week on your own data.</p>
+  </div>
+
+  <div class="bento">
+    <div class="bcard b-a reveal"><div class="bcard-inner">
+      <div class="bico">MEM</div><span class="btag">Persistent Memory</span>
+      <h3 class="btitle">Remembers every lead.<br />Forever.</h3>
+      <p class="bbody">Every detail a lead shares — their situation, goals, objections, exact words — is <strong>stored permanently in their profile.</strong> They DM again 10 months later and <Reference Site> already knows who they are, what they want, and where they left off. <span style="color:var(--orange-l)">Leads feel heard. Leads feel understood. That's why they close.</span></p>
+      <div class="mem-rows">
+        <div class="mem-row"><span class="mem-k">Background</span><span class="mem-v">Electrician, 26 — 4 years on the tools, wants out</span></div>
+        <div class="mem-row"><span class="mem-k">Goal</span><span class="mem-v">$8k/mo online, quit by December</span></div>
+        <div class="mem-row"><span class="mem-k">Objection</span><span class="mem-v">Tried a course before — got nothing from it</span></div>
+        <div class="mem-row"><span class="mem-k">Intent</span><span class="mem-v hot">HOT — 3rd message, just asked about price</span></div>
+      </div>
+    </div></div>
+
+    <div class="bcard b-b reveal d1"><div class="bcard-inner">
+      <div class="bico">SPM</div><span class="btag">Smart Spam Filter</span>
+      <h3 class="btitle">Only real leads<br />get through.</h3>
+      <p class="bbody"><strong>~30% of DMs are noise.</strong> <Reference Site> filters them automatically — no wasted time, no token spend — so your <span style="color:var(--orange-l)">conversion data stays clean</span> and you only pay to close real leads.</p>
+      <div class="spam-flow">
+        <div class="spam-row spam-blocked"><div class="sdot sdot-r"></div>"I can grow your followers…"</div>
+        <div class="spam-row spam-blocked"><div class="sdot sdot-r"></div>"Love your content"</div>
+        <div class="spam-row spam-pass"><div class="sdot sdot-g"></div>"How does the AI thing work?"</div>
+        <div class="spam-row spam-pass"><div class="sdot sdot-g"></div>"I want to quit my job, help"</div>
+      </div>
+    </div></div>
+
+    <div class="bcard b-c reveal d2"><div class="bcard-inner">
+      <div class="bico">24/7</div><span class="btag">Always On</span>
+      <h3 class="btitle">Zero downtime.<br />Zero days off.</h3>
+      <p class="bbody">Every DM gets a reply <strong style="color:var(--orange-l)">within seconds</strong> — 2am, Christmas, bank holiday. No delays. No windows where a lead goes cold because nobody was watching.</p>
+    </div></div>
+
+    <div class="bcard b-d reveal d1"><div class="bcard-inner">
+      <div class="bico">IMP</div><span class="btag">Self-Improving Engine</span>
+      <h3 class="btitle">Every booking makes<br />it sharper.</h3>
+      <p class="bbody">Every converted conversation gets analysed. <strong>Winning openers, qualifiers, and CTAs extracted</strong> and injected into every future message. <span style="color:var(--orange-l)"><em>The system teaches itself.</em></span></p>
+      <div class="loop-nodes">
+        <div class="loop-node"><div class="lnum">1</div><div class="ltext"><h5>Lead books a call</h5><p>Conversation marked as converted</p></div></div>
+        <div class="loop-node"><div class="lnum">2</div><div class="ltext"><h5>Patterns extracted</h5><p>Winning opener, qualifier, CTA stored</p></div></div>
+        <div class="loop-node"><div class="lnum">3</div><div class="ltext"><h5>Injected into AI</h5><p>Top patterns inform every future message</p></div></div>
+        <div class="loop-node"><div class="lnum">4</div><div class="ltext"><h5>Booking rate climbs</h5><p>Week 8 always outperforms week 1.</p></div></div>
+      </div>
+    </div></div>
+
+    <div class="bcard b-e reveal"><div class="bcard-inner">
+      <div class="bico">DATA</div><span class="btag">Live Pipeline</span>
+      <h3 class="btitle">Full funnel.<br />Real-time.</h3>
+      <p class="bbody">New leads, qualified, booked, won. <strong>Know exactly what's working</strong> at all times: reply rate by stage, booking rate, everything.</p>
+    </div></div>
+
+    <div class="bcard b-f reveal d1"><div class="bcard-inner">
+      <div class="bico">FLW</div><span class="btag">Smart Follow-Ups</span>
+      <h3 class="btitle">Contextual follow-ups.<br />Never pushy.</h3>
+      <p class="bbody">Lead goes cold? <Reference Site> follows up <strong>referencing exactly what they said last time.</strong> <em>Feels human.</em> Never chases more than twice.</p>
+    </div></div>
+  </div>
+</section>
+
+
+<!-- IG MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-label">Creators running <Reference Site> right now</div>
+  <div class="marquee-fade-l"></div>
+  <div class="marquee-fade-r"></div>
+  <div class="marquee-row">
+    <div class="marquee-track" id="row1"></div>
+  </div>
+  <div class="marquee-row">
+    <div class="marquee-track marquee-track-r" id="row2"></div>
+  </div>
+</div>
+
+
+<!-- MEANING -->
+<section class="meaning-section" id="meaning">
+  <div class="reveal">
+    <div class="kanji-display">説得</div>
+    <div class="kanji-romaji"><Reference Site></div>
+    <div class="kanji-meaning">Japanese · Noun · Persuasion</div>
+  </div>
+  <div class="reveal d2">
+    <h2 class="meaning-body">Not a chatbot.<br />A top 1% closer.</h2>
+    <p class="meaning-p">
+      Most AI tools just reply. <strong><Reference Site> is built to close.</strong> It makes the lead feel heard, then goes to work: digging into limiting beliefs, surfacing hidden objections, and picking up on <em>what they're not saying.</em>
+    </p>
+    <p class="meaning-p">
+      It analyzes every word. It pushes back intelligently when they deflect. It asks the questions that expose <strong style="color:var(--orange-l)">the real reason they haven't pulled the trigger yet.</strong> Guards come down. Deals close.
+    </p>
+    <div class="meaning-quote">
+      "The best closer doesn't feel like a closer at all."
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- CLAUDE / SELF-ANNEALING -->
+<section class="claude-section">
+  <div class="claude-card reveal">
+    <div class="claude-card-inner">
+      <div>
+        <div class="claude-tag">Powered by Claude Opus</div>
+        <h3 class="claude-title">The most capable AI model. Designed to fix itself.</h3>
+        <p class="claude-body">
+          <Reference Site> runs on Claude Opus (<strong>Anthropic's most capable model</strong>). It doesn't just respond. It reasons, adapts, and improves on its own data. Every week, winning conversation patterns get extracted from booked calls and fed back into the system. <span style="color:var(--orange-l)"><strong>The booking rate at week 8 always outperforms week 1.</strong></span>
+        </p>
+      </div>
+      <div>
+        <div class="anneal-steps">
+          <div class="anneal-step">
+            <div class="anneal-num">1</div>
+            <div class="anneal-text"><h5>Lead goes cold after a message</h5><p>Drop-off flagged. Conversation analysed.</p></div>
+          </div>
+          <div class="anneal-step">
+            <div class="anneal-num">2</div>
+            <div class="anneal-text"><h5>Root cause diagnosed</h5><p>Too pushy? Wrong tone? Bad timing? Exact issue identified.</p></div>
+          </div>
+          <div class="anneal-step">
+            <div class="anneal-num">3</div>
+            <div class="anneal-text"><h5>Pattern updated</h5><p>Failing approach corrected. Better approach tested.</p></div>
+          </div>
+          <div class="anneal-step">
+            <div class="anneal-num">4</div>
+            <div class="anneal-text"><h5>System gets sharper</h5><p>Every failure becomes a permanent fix. It only improves.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section class="steps-section">
+  <div class="steps-inner">
+    <div class="reveal centered">
+      <div class="eyebrow" style="justify-content:center">Setup</div>
+      <h2 class="sh-title">Live in under a week.</h2>
+      <p class="sh-sub">We build everything. You flip the switch. Sales happen.</p>
+    </div>
+    <div class="steps-grid reveal d1">
+      <div class="step">
+        <div class="step-n">01 — Onboarding</div>
+        <h3>We learn your voice.</h3>
+        <p>Brand voice, offer, ICP, qualification criteria. <strong><Reference Site> speaks exactly like you.</strong> <em>Your leads will never know it's AI.</em></p>
+      </div>
+      <div class="step">
+        <div class="step-n">02 — We build it</div>
+        <h3>Full stack. Fully tested.</h3>
+        <p>N8N workflow, Supabase database, spam filter, lead profiling, message analytics, follow-up queue, pipeline dashboard. <strong>Battle-tested before we hand it over.</strong></p>
+      </div>
+      <div class="step">
+        <div class="step-n">03 — It goes live</div>
+        <h3>Deals start closing.</h3>
+        <p>We flip the switch, monitor closely, and improve the prompt weekly on real data. <span style="color:var(--orange-l)"><strong>The system gets sharper automatically every single week.</strong></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <div class="reveal centered">
+      <div class="eyebrow" style="justify-content:center">Pricing</div>
+      <h2 class="sh-title">Custom pricing.<br />Built around your setup.</h2>
+      <p class="sh-sub" style="margin:0 auto">You post. Leads come in. <Reference Site> qualifies them, handles every objection, and closes the deal — while you focus on creating. Book a call and we'll show you exactly how it works for your setup.</p>
+    </div>
+    <div class="reveal d1" style="margin-top:56px; text-align:center;">
+      <a href="#book" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:16px;padding:17px 20px 17px 30px;display:inline-flex;text-decoration:none;">
+        Book a free consultation <div class="btn-ico" style="width:32px;height:32px;">↗</div>
+      </a>
+      <p style="margin-top:18px; font-size:13px; color:var(--muted);">30 minutes. No pitch. No pressure.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="final-glow"></div>
+  <h2 class="reveal">Your DMs are running<br/>right now. Who's<br/><span class="final-grad">handling them?</span></h2>
+  <p class="reveal d1">Leads are messaging right now. Sitting on delivered. <strong style="color:#f87171">Intent was high and the window closed.</strong> Nobody closed them while it mattered. <em>That's thousands in sales gone every single month.</em></p>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><Reference Site>.ai</div>
+  <p>AI-powered Instagram DM setter · @<reference-site>.ai</p>
+  <p>Built on Claude Opus · Runs forever</p>
+  <p style="margin-top:10px;font-size:11px;color:rgba(255,255,255,0.22)">© 2026 <Reference Site>.ai · All rights reserved</p>
+</footer>
+
+
+<script>
+/* ── Scroll Reveal ── */
+const ro = new IntersectionObserver(
+  es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } }),
+  { threshold:0.06, rootMargin:'0px 0px -30px 0px' }
+);
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+/* ── Typewriter ── */
+const phrases = [
+  'closes deals automatically',
+  'sounds exactly like you',
+  'never charges a commission',
+  'never forgets chat history',
+  'responds within seconds',
+  'filters spam and cold outreach',
+  'gets smarter every week',
+];
+let pi = 0;
+const tw = document.getElementById('typewriter');
+
+function typeIn(text, pos, done) {
+  tw.textContent = text.substring(0, pos);
+  if (pos === text.length) { done(); return; }
+  const delay = text[pos] === ' ' ? 70 : 22;
+  setTimeout(() => typeIn(text, pos + 1, done), delay);
+}
+
+function eraseOut(text, pos, done) {
+  tw.textContent = text.substring(0, pos);
+  if (pos === 0) { done(); return; }
+  setTimeout(() => eraseOut(text, pos - 1, done), 14);
+}
+
+function cycle() {
+  const text = phrases[pi];
+  typeIn(text, 0, () => {
+    setTimeout(() => {
+      eraseOut(text, text.length, () => {
+        pi = (pi + 1) % phrases.length;
+        setTimeout(cycle, 100);
+      });
+    }, 800);
+  });
+}
+setTimeout(cycle, 500);
+
+/* ── IG Marquee ── */
+const creators1 = [
+  {handle:'@saint.vii',        followers:'13K',  color:'#f97316'},
+  {handle:'@<creator-handle>',      followers:'930K', color:'#0ea5e9'},
+  {handle:'@normundstrencis',  followers:'2K',   color:'#10b981'},
+  {handle:'@mindset.alex',     followers:'234K', color:'#f59e0b'},
+  {handle:'@richlee.co',       followers:'89K',  color:'#f97316'},
+  {handle:'@james.operates',   followers:'156K', color:'#6366f1'},
+  {handle:'@wealthprotocol',   followers:'312K', color:'#ec4899'},
+];
+const creators2 = [
+  {handle:'@scottcreates',     followers:'445K', color:'#10b981'},
+  {handle:'@danielonline',     followers:'112K', color:'#f97316'},
+  {handle:'@zach.builds',      followers:'93K',  color:'#0ea5e9'},
+  {handle:'@theresultsguy',    followers:'188K', color:'#f59e0b'},
+  {handle:'@growthbykai',      followers:'55K',  color:'#f97316'},
+  {handle:'@matthewoperates',  followers:'267K', color:'#6366f1'},
+  {handle:'@aioperator.uk',    followers:'34K',  color:'#ec4899'},
+];
+function mkCard(c) {
+  const initial = c.handle.replace('@','').charAt(0).toUpperCase();
+  return `<div class="ig-card">
+    <div class="ig-avatar" style="background:${c.color}">${initial}</div>
+    <div class="ig-info">
+      <div class="ig-handle">${c.handle}</div>
+      <div class="ig-followers">${c.followers} followers</div>
+    </div>
+  </div>`;
+}
+function buildTrack(el, data) {
+  el.innerHTML = [...data, ...data].map(mkCard).join('');
+}
+buildTrack(document.getElementById('row1'), creators1);
+buildTrack(document.getElementById('row2'), creators2);
+
+</script>
+
+</body>
+</html>

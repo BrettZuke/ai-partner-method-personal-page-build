@@ -1,0 +1,17 @@
+DROP YOUR HEADSHOT HERE
+
+When Claude asks for your photo:
+1. Save it to this folder as `photo.jpg`
+2. Tell Claude "I added it as photo.jpg"
+3. Claude will reference it in the hero section.
+
+Photo specs that work best:
+- Square or portrait (4:5 ratio is ideal)
+- 1000x1000px minimum
+- Good lighting, clear face
+- Plain background or busy background — both work in this design
+- Smile or serious — both fine
+
+If you don't have one, Claude will skip the photo and use a text-only hero. You can add it later.
+
+(Delete this file once you've added your photo.)

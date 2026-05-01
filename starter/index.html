@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    REFERENCE BUILD — production-quality starter for the AI Partner Method kit.
+
+    This is the FLOOR. Every site you build for a student must meet or exceed
+    this quality bar. Customize the copy + accent color per the interview answers.
+    Do not regress on the structure, motion, or micro-details.
+
+    See `design-reference/quality-bar.md` for the pre-ship checklist.
+  -->
+
+  <title>[Student Name] — AI Growth Operator</title>
+  <meta name="description" content="[Student Name] — AI Growth Operator. [Positioning line]" />
+  <meta property="og:title" content="[Student Name] — AI Growth Operator" />
+  <meta property="og:description" content="[Positioning line]" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV — sticky on desktop, top of page on mobile
+       ============================================================ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <!-- Student name acts as logo. Bold, all-caps, light tracking. -->
+      <a href="#top" class="nav__logo">[STUDENT NAME]</a>
+
+      <a href="#book" class="btn btn--primary nav__cta">
+        Book a call
+        <span class="btn__icon" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO — eyebrow + display headline (with accent-underline) + lead + CTAs + photo
+       60/40 split desktop, stacked mobile
+       ============================================================ -->
+  <section class="hero" id="top">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <span class="eyebrow reveal">AI Growth Operator</span>
+
+        <h1 class="hero__title reveal d1">
+          I help [audience] achieve <span class="accent-underline">[outcome] using AI</span>.
+        </h1>
+
+        <p class="lead reveal d2">
+          [1–2 sentence sub-paragraph that expands on the headline. Mention the operator angle: AI systems, not advice. Specific outcomes, not vague promises.]
+        </p>
+
+        <div class="hero__cta-row reveal d3">
+          <a href="#book" class="btn btn--primary btn--lg">
+            Book a free call
+            <span class="btn__icon" aria-hidden="true">↗</span>
+          </a>
+          <a href="#process" class="btn btn--secondary btn--lg">
+            See my process
+            <span class="btn__icon btn__icon--down" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+
+      <!--
+        Hero photo. Replace assets/photo.jpg with student's headshot.
+        Recommended: 600 × 800px, JPEG, < 300KB.
+        If no photo provided, delete this entire .hero__visual block — the layout collapses gracefully.
+      -->
+      <div class="hero__visual reveal d2">
+        <div class="hero__photo">
+          <img src="assets/photo.jpg" alt="[Student Name]" onerror="this.parentElement.classList.add('hero__photo--placeholder')" />
+          <div class="hero__photo-fallback">
+            <span>Student photo</span>
+            <small>Replace assets/photo.jpg</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STATS BAR — 3 columns desktop, stacked mobile
+       Accent-color stat numbers (weight 900, tabular-nums)
+       Skip this entire section if student gave no stats.
+       ============================================================ -->
+  <section class="stats" aria-label="Stats">
+    <div class="container stats__grid">
+      <div class="stat reveal d1">
+        <span class="stat__num">[Stat 1]</span>
+        <span class="stat__label">[Label 1]</span>
+      </div>
+      <div class="stat reveal d2">
+        <span class="stat__num">[Stat 2]</span>
+        <span class="stat__label">[Label 2]</span>
+      </div>
+      <div class="stat reveal d3">
+        <span class="stat__num">[Stat 3]</span>
+        <span class="stat__label">[Label 3]</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES — six fixed AI systems (DO NOT change content)
+       3-column grid desktop, 1-column mobile
+       ============================================================ -->
+  <section class="section services" id="services">
+    <div class="container">
+      <header class="section__header">
+        <span class="eyebrow reveal">What I install</span>
+        <h2 class="section__title reveal d1">Six AI systems. <span class="accent-underline">One operating system</span> for growth.</h2>
+      </header>
+
+      <div class="services__grid">
+        <article class="service reveal d1">
+          <span class="service__num">01</span>
+          <h3 class="service__title">AI DM Setter</h3>
+          <p class="service__desc">A 24/7 setter that qualifies every inbound DM by budget, timeline, and intent. You only see leads worth a call.</p>
+        </article>
+
+        <article class="service reveal d2">
+          <span class="service__num">02</span>
+          <h3 class="service__title">Content Systems</h3>
+          <p class="service__desc">MOF educational reels, BOF result content, and carousels engineered to drive DMs. The content does the selling.</p>
+        </article>
+
+        <article class="service reveal d3">
+          <span class="service__num">03</span>
+          <h3 class="service__title">Funnel Infrastructure</h3>
+          <p class="service__desc">Landing pages, qualification forms, split routing, checkout. Every lead goes exactly where they need to go.</p>
+        </article>
+
+        <article class="service reveal d1">
+          <span class="service__num">04</span>
+          <h3 class="service__title">Sales Operations</h3>
+          <p class="service__desc">Call flows, voice note sequences, closer and setter ops. Every conversation runs on a system, not on memory.</p>
+        </article>
+
+        <article class="service reveal d2">
+          <span class="service__num">05</span>
+          <h3 class="service__title">Offer Architecture</h3>
+          <p class="service__desc">Three-tier pricing, positioning, sales copy. Built so the right buyer self-selects the right tier.</p>
+        </article>
+
+        <article class="service reveal d3">
+          <span class="service__num">06</span>
+          <h3 class="service__title">Analytics &amp; Tracking</h3>
+          <p class="service__desc">Custom infrastructure that tracks every lead, call, and sale. You always know what's working — and what to kill.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROCESS — three fixed phases (Audit → Build → Scale)
+       Big phase numbers, horizontal on desktop, vertical on mobile
+       ============================================================ -->
+  <section class="section process" id="process">
+    <div class="container">
+      <header class="section__header">
+        <span class="eyebrow reveal">My process</span>
+        <h2 class="section__title reveal d1">How we <span class="accent-underline">work together</span>.</h2>
+      </header>
+
+      <ol class="process__steps">
+        <li class="process__step reveal d1">
+          <span class="process__num">01</span>
+          <h3 class="process__title">Audit</h3>
+          <p class="process__desc">Map every leak in your client flow: where leads drop off, where time disappears, where AI can take over. You leave the call with a written roadmap, not a pitch.</p>
+        </li>
+
+        <li class="process__step reveal d2">
+          <span class="process__num">02</span>
+          <h3 class="process__title">Build</h3>
+          <p class="process__desc">Deploy custom AI systems tailored to your offer, audience, and voice. You don't learn a tool — I install the operating system and hand you the controls.</p>
+        </li>
+
+        <li class="process__step reveal d3">
+          <span class="process__num">03</span>
+          <h3 class="process__title">Scale</h3>
+          <p class="process__desc">Compound the systems. More leads in. More closes out. Less manual work. Every quarter you do less of what doesn't matter and more of what only you can do.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHO IT'S FOR — qualifier section. ✓ For you / ✗ Not for you.
+       2-column grid desktop, stacked mobile
+       ============================================================ -->
+  <section class="section qualifier" id="who-its-for">
+    <div class="container">
+      <header class="section__header">
+        <span class="eyebrow reveal">Who it's for</span>
+        <h2 class="section__title reveal d1">Is this <span class="accent-underline">you</span>?</h2>
+        <p class="lead reveal d2">[1-line student qualifier — use the answer to "who's your ideal client?"]</p>
+      </header>
+
+      <div class="qualifier__grid">
+        <div class="qualifier__col qualifier__col--for reveal d1">
+          <h3 class="qualifier__heading">This is for you if…</h3>
+          <ul class="qualifier__list">
+            <li><span class="qualifier__icon" aria-hidden="true">✓</span>You already have an offer and are doing [revenue threshold] but plateaued</li>
+            <li><span class="qualifier__icon" aria-hidden="true">✓</span>You're tired of running everything yourself and want real systems</li>
+            <li><span class="qualifier__icon" aria-hidden="true">✓</span>You want to scale without hiring a 10-person team</li>
+            <li><span class="qualifier__icon" aria-hidden="true">✓</span>You're willing to be in the build, not just outsource it</li>
+          </ul>
+        </div>
+
+        <div class="qualifier__col qualifier__col--against reveal d2">
+          <h3 class="qualifier__heading">This isn't for you if…</h3>
+          <ul class="qualifier__list">
+            <li><span class="qualifier__icon qualifier__icon--no" aria-hidden="true">✗</span>You don't have an offer yet — start with the offer first</li>
+            <li><span class="qualifier__icon qualifier__icon--no" aria-hidden="true">✗</span>You want a course, not a partner</li>
+            <li><span class="qualifier__icon qualifier__icon--no" aria-hidden="true">✗</span>You expect AI to do all the work while you do none</li>
+            <li><span class="qualifier__icon qualifier__icon--no" aria-hidden="true">✗</span>You aren't ready to look honestly at what's broken</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS — carousel, auto-advance every 5s
+       PLACEHOLDER — REPLACE BEFORE GOING LIVE
+       These are template testimonials with [Client Name] markers.
+       Never fabricate names. FTC/ASA violation.
+       ============================================================ -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <header class="section__header">
+        <span class="eyebrow reveal">Results</span>
+        <h2 class="section__title reveal d1">What clients <span class="accent-underline">say</span>.</h2>
+      </header>
+
+      <!-- PLACEHOLDER — REPLACE BEFORE GOING LIVE -->
+      <!-- Replace each [Client Name] / quote with a real testimonial. -->
+      <div class="testimonials__carousel" id="testimonialCarousel" role="region" aria-roledescription="carousel" aria-label="Client testimonials">
+        <article class="testimonial active" aria-hidden="false">
+          <p class="testimonial__quote">"[Replace with your client's testimonial — 2-3 sentences about the result you delivered.]"</p>
+          <footer class="testimonial__attribution">
+            <span class="testimonial__avatar" aria-hidden="true">[CN]</span>
+            <span class="testimonial__name">[Client Name]</span>
+            <span class="testimonial__role">[Their Business]</span>
+          </footer>
+        </article>
+
+        <article class="testimonial" aria-hidden="true">
+          <p class="testimonial__quote">"[Replace with second testimonial — focus on a specific outcome.]"</p>
+          <footer class="testimonial__attribution">
+            <span class="testimonial__avatar" aria-hidden="true">[CN]</span>
+            <span class="testimonial__name">[Client Name]</span>
+            <span class="testimonial__role">[Their Role]</span>
+          </footer>
+        </article>
+
+        <article class="testimonial" aria-hidden="true">
+          <p class="testimonial__quote">"[Replace with third testimonial — emphasize speed or transformation.]"</p>
+          <footer class="testimonial__attribution">
+            <span class="testimonial__avatar" aria-hidden="true">[CN]</span>
+            <span class="testimonial__name">[Client Name]</span>
+            <span class="testimonial__role">[Their Business]</span>
+          </footer>
+        </article>
+      </div>
+
+      <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Testimonial navigation">
+        <button class="dot active" data-index="0" aria-label="Testimonial 1" aria-selected="true" role="tab"></button>
+        <button class="dot" data-index="1" aria-label="Testimonial 2" aria-selected="false" role="tab"></button>
+        <button class="dot" data-index="2" aria-label="Testimonial 3" aria-selected="false" role="tab"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ — accordion, first item expanded by default
+       6 default questions; rewrite based on student's offer.
+       ============================================================ -->
+  <section class="section faq" id="faq">
+    <div class="container container--narrow">
+      <header class="section__header">
+        <span class="eyebrow reveal">Questions</span>
+        <h2 class="section__title reveal d1">Common questions.</h2>
+      </header>
+
+      <div class="faq__list">
+        <details class="faq__item reveal d1" open>
+          <summary class="faq__q">How long does it take to see results?</summary>
+          <p class="faq__a">Most partners see meaningful pipeline movement inside 30–45 days. The DM setter and content systems start producing the week they go live. Compound effects show up in months 2 and 3 as offer architecture and analytics start working together.</p>
+        </details>
+
+        <details class="faq__item reveal d2">
+          <summary class="faq__q">What if I'm not technical?</summary>
+          <p class="faq__a">You don't need to be. I install the systems, train them on your voice, and hand you the controls. If you can use Instagram and Calendly, you can run this stack.</p>
+        </details>
+
+        <details class="faq__item reveal d3">
+          <summary class="faq__q">Do I need to be on social media already?</summary>
+          <p class="faq__a">An audience helps but isn't required. The systems work for cold outreach, paid traffic, partnerships — anywhere leads come from. We adapt the playbook to where your demand actually is.</p>
+        </details>
+
+        <details class="faq__item reveal d1">
+          <summary class="faq__q">How is this different from other AI courses or coaches?</summary>
+          <p class="faq__a">Courses teach you tools. Coaches give you advice. I install the operating system and run it with you. You get systems that work whether or not you watch a video.</p>
+        </details>
+
+        <details class="faq__item reveal d2">
+          <summary class="faq__q">What's the investment?</summary>
+          <p class="faq__a">It depends on scope and what you already have in place. We map that on the audit call so the number reflects your actual business — not a generic package. No pitch, no pressure.</p>
+        </details>
+
+        <details class="faq__item reveal d3">
+          <summary class="faq__q">Do you offer a guarantee?</summary>
+          <p class="faq__a">I don't guarantee revenue — anyone who does is selling you a fantasy. What I guarantee is the work, the systems, and the partnership. If we agree on milestones and I miss them, that's on me.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FINAL CTA — inverted (black bg, white text)
+       Single big headline, one button.
+       ============================================================ -->
+  <section class="cta" id="book">
+    <div class="container cta__inner">
+      <h2 class="cta__title reveal">Ready to <span class="accent-underline accent-underline--light">grow</span>?</h2>
+      <p class="cta__sub reveal d1">Book a free call. We'll talk through your bottleneck and map a path forward. No pitch. No pressure. Just a conversation.</p>
+      <a href="#book" class="btn btn--primary btn--xl reveal d2">
+        Book a call
+        <span class="btn__icon" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER — minimal. Copyright + socials + tiny attribution.
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">© <span id="year"></span> [Student Name]</p>
+
+      <nav class="footer__socials" aria-label="Social links">
+        <!-- Drop in only the socials the student actually uses. Delete the rest. -->
+        <a href="https://instagram.com/[handle]" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://x.com/[handle]" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://linkedin.com/in/[handle]" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://youtube.com/@[handle]" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </nav>
+
+      <p class="footer__attribution">Built with the AI Partner Method.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

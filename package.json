@@ -1,0 +1,10 @@
+{
+  "name": "ai-partner-method-personal-page",
+  "version": "1.0.0",
+  "description": "AI Partner Method student personal authority website",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  }
+}
