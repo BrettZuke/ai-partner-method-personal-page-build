@@ -5,3 +5,7 @@ node_modules/
 .env
 .env.local
 .vercel
+
+# Student-generated sensitive files
+clients/
+.claude/settings.local.json
